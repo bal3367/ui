@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Obsidian Journal - Add New Trade</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#0c0c0f",
+                    "on-error-container": "#fca5a5",
+                    "on-surface-variant": "#a1a1aa",
+                    "surface-container-highest": "#1e1e22",
+                    "tertiary-container": "#065f46",
+                    "on-primary-container": "#ede9fe",
+                    "inverse-primary": "#5b21b6",
+                    "on-tertiary": "#001a12",
+                    "inverse-on-surface": "#09090b",
+                    "secondary-fixed-dim": "#71717a",
+                    "on-secondary-container": "#a1a1aa",
+                    "error": "#ef4444",
+                    "surface-container-lowest": "#09090b",
+                    "on-tertiary-fixed": "#003318",
+                    "surface-tint": "#a78bfa",
+                    "surface": "#0c0c0f",
+                    "tertiary": "#34d399",
+                    "surface-container": "#121215",
+                    "tertiary-fixed-dim": "#6ee7b7",
+                    "on-primary": "#0a0012",
+                    "on-tertiary-fixed-variant": "#047857",
+                    "on-secondary-fixed-variant": "#3f3f46",
+                    "on-tertiary-container": "#bbf7d0",
+                    "on-primary-fixed-variant": "#5b21b6",
+                    "surface-container-high": "#18181b",
+                    "primary-fixed": "#ede9fe",
+                    "surface-container-low": "#0f0f12",
+                    "surface-bright": "#18181b",
+                    "on-primary-fixed": "#2e1065",
+                    "on-secondary-fixed": "#18181b",
+                    "on-secondary": "#09090b",
+                    "background": "#09090b",
+                    "inverse-surface": "#fafafa",
+                    "on-surface": "#fafafa",
+                    "outline": "#52525b",
+                    "surface-variant": "#18181b",
+                    "primary-container": "#7c3aed",
+                    "outline-variant": "#27272a",
+                    "on-background": "#fafafa",
+                    "primary": "#a78bfa",
+                    "secondary-fixed": "#a1a1aa",
+                    "primary-fixed-dim": "#c4b5fd",
+                    "secondary-container": "#27272a",
+                    "error-container": "#3b1111",
+                    "secondary": "#71717a",
+                    "on-error": "#1a0000",
+                    "tertiary-fixed": "#bbf7d0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Geist"],
+                    "body": ["Geist"],
+                    "label": ["Geist"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; background-color: #09090b; color: #fafafa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        input:focus, select:focus, textarea:focus { outline: none !important; border-color: #a78bfa !important; ring: 2px solid #a78bfa; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/30 antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 w-64 border-r border-zinc-800 bg-zinc-950 font-['Geist'] tracking-tight antialiased">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-black tracking-tighter text-zinc-50">Obsidian</h1>
+<p class="text-xs text-zinc-500 mt-1 uppercase tracking-widest font-bold">Precision Trading</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span class="text-sm">Trade Log</span>
+</a>
+<!-- Active State: Add Trade -->
+<a class="flex items-center gap-3 px-4 py-3 text-violet-400 font-bold border-r-2 border-violet-400 bg-zinc-900/50 transition-all rounded-l-lg" href="#">
+<span class="material-symbols-outlined" data-icon="add_box" style="font-variation-settings: 'FILL' 1;">add_box</span>
+<span class="text-sm">Add Trade</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm">Analytics</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1 border-t border-zinc-800 pt-6">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-50 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="flex items-center justify-between px-8 sticky top-0 z-40 h-16 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md font-['Geist'] tracking-tight">
+<div class="flex items-center gap-4">
+<span class="text-lg font-black text-zinc-50">Obsidian Journal</span>
+<div class="relative ml-8">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-lg">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-full py-1.5 pl-10 pr-4 text-xs w-64 focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Search entries..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-zinc-400 hover:text-zinc-50 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-zinc-400 hover:text-zinc-50 transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-zinc-800">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Professional headshot of a male trader in dark business casual attire against a dark textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhHVrY8xQBfChYff1P8iGS5isDe34RZmFpPz5Q6IzXsJUSy0Q4XJ_klqze3a7uO3vwDWatynYHoHEoGoi03HM5WWtGhzXHXlVqCWGRwPx1qKER8wVN0RAxxN0Tra_aCk7D07hNrtupxEM8Ou2eZm7ZSRiY-NrQmMCiGqaQkCR-x6frmpxCGsBJj7I066pYncpGKfs_uB4moZCq15OaFqrqDajsO3PMdBZ4w7aPUWt1rY8QCp_LH4oq5ZSIGqzH0S1E-Kws00BLWAM"/>
+</div>
+</div>
+</header>
+<!-- Form Canvas -->
+<main class="p-12 max-w-5xl w-full mx-auto">
+<header class="mb-10">
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+<span class="text-xs font-bold uppercase tracking-widest">Entry Creation</span>
+</div>
+<h2 class="text-4xl font-black tracking-tight text-zinc-50">Execute New Trade</h2>
+<p class="text-on-surface-variant mt-2 max-w-2xl">Log your execution parameters with clinical precision. High-quality data leads to superior long-term performance.</p>
+</header>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Core Data -->
+<div class="col-span-12 lg:col-span-7 space-y-8">
+<div class="bg-surface-container border border-outline-variant rounded-xl p-8">
+<div class="grid grid-cols-2 gap-6">
+<!-- Symbol -->
+<div class="col-span-1">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Symbol</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-zinc-50 focus:border-primary transition-all" placeholder="e.g. BTCUSDT" type="text"/>
+</div>
+<!-- Strategy -->
+<div class="col-span-1">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Strategy</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-zinc-50 focus:border-primary appearance-none">
+<option>Select Strategy</option>
+<option>Breakout Retest</option>
+<option>Mean Reversion</option>
+<option>Liquidity Sweep</option>
+<option>Trend Following</option>
+</select>
+</div>
+<!-- Entry Price -->
+<div class="col-span-1">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Entry Price</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500">$</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-8 pr-4 py-3 text-zinc-50 focus:border-primary transition-all" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Exit Price -->
+<div class="col-span-1">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Exit Price (Target)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500">$</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-8 pr-4 py-3 text-zinc-50 focus:border-primary transition-all" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Stop Loss -->
+<div class="col-span-1">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Stop Loss</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-red-500/50">$</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-8 pr-4 py-3 text-zinc-50 focus:border-primary transition-all" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Take Profit -->
+<div class="col-span-1">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Take Profit</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-tertiary/50">$</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-8 pr-4 py-3 text-zinc-50 focus:border-primary transition-all" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Rationale -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-8">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-4">Trading Rationale</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-4 text-zinc-50 focus:border-primary transition-all resize-none" placeholder="Document the technical and fundamental reasons for this trade execution..." rows="6"></textarea>
+<div class="mt-4 flex items-center justify-between text-[10px] text-zinc-500 uppercase tracking-tighter">
+<span>Analysis Precision: Recommended</span>
+<span>Min 50 Characters</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Evidence & Submission -->
+<div class="col-span-12 lg:col-span-5 space-y-8">
+<!-- Image Upload -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-8">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-4">Setup Screenshots</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-12 flex flex-col items-center justify-center text-center hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="h-12 w-12 rounded-full bg-zinc-900 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">add_photo_alternate</span>
+</div>
+<p class="text-sm font-bold text-zinc-50">Upload chart analysis</p>
+<p class="text-xs text-zinc-500 mt-1">Drag and drop or click to browse</p>
+<div class="mt-6 flex gap-2">
+<div class="h-10 w-10 bg-zinc-900 border border-outline-variant rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-zinc-600">image</span>
+</div>
+<div class="h-10 w-10 bg-zinc-900 border border-outline-variant rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-zinc-600">image</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Market Context Bento (Small Stats) -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high border border-outline-variant rounded-xl p-4">
+<p class="text-[10px] font-bold text-zinc-500 uppercase">Risk/Reward</p>
+<p class="text-xl font-black text-zinc-50 mt-1">1:3.4</p>
+</div>
+<div class="bg-surface-container-high border border-outline-variant rounded-xl p-4">
+<p class="text-[10px] font-bold text-zinc-500 uppercase">Est. Risk</p>
+<p class="text-xl font-black text-red-400 mt-1">-$250.00</p>
+</div>
+</div>
+<!-- Submission Actions -->
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-black py-4 rounded-lg shadow-lg shadow-primary/10 transition-all flex items-center justify-center gap-2">
+<span>Save Trade</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'wght' 700;">done_all</span>
+</button>
+<button class="w-full bg-transparent border border-outline-variant hover:bg-zinc-900 text-zinc-400 hover:text-zinc-50 py-4 rounded-lg transition-all font-bold">
+                            Save as Draft
+                        </button>
+</div>
+<!-- Safety Warning -->
+<div class="p-4 rounded-lg bg-red-900/10 border border-red-900/20 flex gap-3">
+<span class="material-symbols-outlined text-red-500 text-lg">info</span>
+<div>
+<p class="text-xs font-bold text-red-400 uppercase tracking-tight">Validation Check</p>
+<p class="text-[11px] text-red-500/80 leading-relaxed">Ensure your stop loss is set within your daily risk limit (1.5% of total equity) before confirming.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Decorative Gradient Mesh -->
+<div class="fixed bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+<div class="fixed top-0 left-64 w-[300px] h-[300px] bg-tertiary/5 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+</body></html>

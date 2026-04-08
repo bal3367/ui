@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#121215",
+                    "error": "#ef4444",
+                    "on-surface-variant": "#a1a1aa",
+                    "on-primary-fixed-variant": "#5b21b6",
+                    "tertiary": "#34d399",
+                    "inverse-on-surface": "#09090b",
+                    "background": "#09090b",
+                    "primary-fixed-dim": "#c4b5fd",
+                    "on-surface": "#fafafa",
+                    "on-secondary": "#09090b",
+                    "on-error-container": "#fca5a5",
+                    "surface-bright": "#18181b",
+                    "on-secondary-fixed-variant": "#3f3f46",
+                    "surface-container-high": "#18181b",
+                    "inverse-surface": "#fafafa",
+                    "secondary-fixed-dim": "#71717a",
+                    "on-tertiary-fixed-variant": "#047857",
+                    "on-background": "#fafafa",
+                    "on-primary-container": "#ede9fe",
+                    "surface-tint": "#a78bfa",
+                    "surface-container-low": "#0f0f12",
+                    "outline": "#52525b",
+                    "on-tertiary-container": "#bbf7d0",
+                    "inverse-primary": "#5b21b6",
+                    "surface-container-lowest": "#09090b",
+                    "on-secondary-fixed": "#18181b",
+                    "on-error": "#1a0000",
+                    "surface-variant": "#18181b",
+                    "tertiary-fixed-dim": "#6ee7b7",
+                    "surface": "#0c0c0f",
+                    "secondary-container": "#27272a",
+                    "on-tertiary": "#001a12",
+                    "on-tertiary-fixed": "#003318",
+                    "on-secondary-container": "#a1a1aa",
+                    "tertiary-fixed": "#bbf7d0",
+                    "secondary-fixed": "#a1a1aa",
+                    "error-container": "#3b1111",
+                    "secondary": "#71717a",
+                    "outline-variant": "#27272a",
+                    "surface-container-highest": "#1e1e22",
+                    "on-primary": "#0a0012",
+                    "on-primary-fixed": "#2e1065",
+                    "primary-container": "#7c3aed",
+                    "primary": "#a78bfa",
+                    "tertiary-container": "#065f46",
+                    "primary-fixed": "#ede9fe",
+                    "surface-dim": "#0c0c0f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Geist"],
+                    "body": ["Geist"],
+                    "label": ["Geist"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; background-color: #09090b; color: #fafafa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30">
+<!-- TopNavBar Execution -->
+<nav class="bg-[#09090b] border-b border-[#27272a] flex justify-between items-center px-6 h-16 w-full fixed top-0 z-50 font-geist tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#fafafa]">Obsidian Journal</span>
+<div class="hidden md:flex gap-6">
+<a class="text-[#a1a1aa] hover:text-[#fafafa] transition-colors duration-200 ease-in-out" href="#">Dashboard</a>
+<a class="text-[#a1a1aa] hover:text-[#fafafa] transition-colors duration-200 ease-in-out" href="#">Journal</a>
+<a class="text-[#a78bfa] border-b-2 border-[#a78bfa] pb-1 duration-200 ease-in-out" href="#">Calendar</a>
+<a class="text-[#a1a1aa] hover:text-[#fafafa] transition-colors duration-200 ease-in-out" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#a1a1aa] cursor-pointer hover:text-[#fafafa] transition-colors">notifications</span>
+<span class="material-symbols-outlined text-[#a1a1aa] cursor-pointer hover:text-[#fafafa] transition-colors">settings</span>
+<div class="h-8 w-8 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="Professional portrait of a male trader in high-contrast cinematic lighting with a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn5Nrq379WmlThzKi1_LoWTSiDyRmSPRSIEOutVOTH35uKWdnxWPNqRmOmXgzz8YNg1t-9O8WpPbTyUEuCUwi35RBbTehQUtjQ06s-S-xvRtd3ocAD7EHMi08poel4KL5mSihIwJ_RVAeE3CEXMPnZtn5cIApRk6BCIZ3WlELriHvD6Kg4E3Nu_IfPtV2oNTcmgRUkfvlPdVx9A4SJPCHL4z-Mozp4k1BLhwR7hyR9gUYpc1-Ss3PA6FZl-tHOOuld20QQP2Zpwes"/>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar Execution -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-64px)] w-64 bg-[#0c0c0f] border-r border-[#27272a] py-4 fixed left-0 font-geist">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 bg-primary-container rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+</div>
+<div>
+<div class="text-[#fafafa] font-bold text-sm">Trader One</div>
+<div class="text-[#a1a1aa] text-xs">Precision Account</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-sm bg-[#27272a] text-[#a78bfa] font-semibold border-r-2 border-[#a78bfa] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">calendar_month</span>
+                    Monthly View
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-sm text-[#a1a1aa] hover:bg-[#18181b] hover:text-[#fafafa] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">stacked_bar_chart</span>
+                    Weekly Recap
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-sm text-[#a1a1aa] hover:bg-[#18181b] hover:text-[#fafafa] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">list_alt</span>
+                    Trade Log
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-sm text-[#a1a1aa] hover:bg-[#18181b] hover:text-[#fafafa] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">insights</span>
+                    Performance
+                </a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full bg-primary text-on-primary font-semibold py-2.5 rounded text-sm hover:opacity-90 transition-opacity">
+                    Log New Trade
+                </button>
+</div>
+<div class="px-3 border-t border-[#27272a] pt-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm text-[#a1a1aa] hover:bg-[#18181b] hover:text-[#fafafa] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">help</span>
+                    Support
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm text-[#a1a1aa] hover:bg-[#18181b] hover:text-[#fafafa] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+                    Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-6 lg:p-8 flex flex-col gap-8">
+<header class="flex justify-between items-end">
+<div>
+<h1 class="text-3xl font-bold tracking-tight text-on-surface">October 2023</h1>
+<p class="text-on-surface-variant text-sm mt-1">Monthly performance summary and daily trade logs.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant hover:bg-surface-bright rounded transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 border border-outline-variant hover:bg-surface-bright rounded transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Calendar Grid (Spans 3 columns) -->
+<section class="lg:col-span-3">
+<div class="grid grid-cols-7 border-t border-l border-outline-variant rounded-tl overflow-hidden">
+<!-- Days Header -->
+<div class="bg-surface-dim border-b border-r border-outline-variant py-3 text-center text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Sun</div>
+<div class="bg-surface-dim border-b border-r border-outline-variant py-3 text-center text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Mon</div>
+<div class="bg-surface-dim border-b border-r border-outline-variant py-3 text-center text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Tue</div>
+<div class="bg-surface-dim border-b border-r border-outline-variant py-3 text-center text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Wed</div>
+<div class="bg-surface-dim border-b border-r border-outline-variant py-3 text-center text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Thu</div>
+<div class="bg-surface-dim border-b border-r border-outline-variant py-3 text-center text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Fri</div>
+<div class="bg-surface-dim border-b border-r border-outline-variant py-3 text-center text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Sat</div>
+<!-- Row 1 -->
+<div class="h-32 border-b border-r border-outline-variant p-2 bg-surface-container-low opacity-50">1</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">2</span>
+<div class="text-tertiary font-bold text-sm">+$450.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">3</span>
+<div class="text-error font-bold text-sm">-$120.50</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">4</span>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between bg-primary/5">
+<span class="text-xs font-medium text-primary">5</span>
+<div class="text-tertiary font-bold text-sm">+$1,280.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">6</span>
+<div class="text-error font-bold text-sm">-$340.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">7</span>
+</div>
+<!-- Row 2 -->
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">8</span>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">9</span>
+<div class="text-tertiary font-bold text-sm">+$890.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">10</span>
+<div class="text-tertiary font-bold text-sm">+$210.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">11</span>
+<div class="text-error font-bold text-sm">-$68.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">12</span>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">13</span>
+<div class="text-tertiary font-bold text-sm">+$560.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">14</span>
+</div>
+<!-- Row 3 -->
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">15</span>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">16</span>
+<div class="text-tertiary font-bold text-sm">+$120.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">17</span>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">18</span>
+<div class="text-error font-bold text-sm">-$1,400.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">19</span>
+<div class="text-tertiary font-bold text-sm">+$45.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">20</span>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">21</span>
+</div>
+<!-- Row 4 -->
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">22</span>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">23</span>
+<div class="text-tertiary font-bold text-sm">+$2,100.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">24</span>
+<div class="text-tertiary font-bold text-sm">+$1,450.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">25</span>
+<div class="text-tertiary font-bold text-sm">+$120.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">26</span>
+<div class="text-tertiary font-bold text-sm">+$980.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2 flex flex-col justify-between">
+<span class="text-xs font-medium text-on-surface-variant">27</span>
+<div class="text-error font-bold text-sm">-$210.00</div>
+</div>
+<div class="h-32 border-b border-r border-outline-variant p-2">
+<span class="text-xs font-medium text-on-surface-variant">28</span>
+</div>
+</div>
+</section>
+<!-- Weekly Recaps Sidebar -->
+<section class="space-y-6">
+<h2 class="text-lg font-bold tracking-tight text-on-surface">Weekly Recaps</h2>
+<div class="space-y-4">
+<!-- Week 1 -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-5 hover:border-primary/50 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-sm font-bold text-[#fafafa]">Week 1</span>
+<span class="text-xs text-on-surface-variant">Oct 1 - Oct 7</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Total P/L</div>
+<div class="text-tertiary font-bold">+$1,269.50</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Win Rate</div>
+<div class="text-on-surface font-bold">60%</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Net Trades</div>
+<div class="text-on-surface font-bold">5</div>
+</div>
+</div>
+</div>
+<!-- Week 2 -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-5 hover:border-primary/50 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-sm font-bold text-[#fafafa]">Week 2</span>
+<span class="text-xs text-on-surface-variant">Oct 8 - Oct 14</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Total P/L</div>
+<div class="text-tertiary font-bold">+$1,592.00</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Win Rate</div>
+<div class="text-on-surface font-bold">75%</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Net Trades</div>
+<div class="text-on-surface font-bold">4</div>
+</div>
+</div>
+</div>
+<!-- Week 3 -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-5 hover:border-primary/50 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-sm font-bold text-[#fafafa]">Week 3</span>
+<span class="text-xs text-on-surface-variant">Oct 15 - Oct 21</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Total P/L</div>
+<div class="text-error font-bold">-$1,235.00</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Win Rate</div>
+<div class="text-on-surface font-bold">33%</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Net Trades</div>
+<div class="text-on-surface font-bold">3</div>
+</div>
+</div>
+</div>
+<!-- Week 4 -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-5 hover:border-primary/50 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="text-sm font-bold text-[#fafafa]">Week 4</span>
+<span class="text-xs text-on-surface-variant">Oct 22 - Oct 28</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Total P/L</div>
+<div class="text-tertiary font-bold">+$4,440.00</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Win Rate</div>
+<div class="text-on-surface font-bold">80%</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant tracking-wider">Net Trades</div>
+<div class="text-on-surface font-bold">5</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Performance Chart Miniature -->
+<div class="bg-surface-container-high border border-outline-variant rounded-lg p-4">
+<h3 class="text-xs font-semibold text-on-surface-variant uppercase mb-3">Equity Curve (Monthly)</h3>
+<div class="h-24 w-full flex items-end gap-1">
+<div class="bg-tertiary/20 w-full h-8 rounded-t-sm"></div>
+<div class="bg-tertiary/40 w-full h-12 rounded-t-sm"></div>
+<div class="bg-error/30 w-full h-6 rounded-t-sm"></div>
+<div class="bg-tertiary/60 w-full h-16 rounded-t-sm"></div>
+<div class="bg-tertiary/80 w-full h-20 rounded-t-sm"></div>
+<div class="bg-tertiary w-full h-24 rounded-t-sm"></div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation Suppressed as per Task Intent for Full Calendar View focus -->
+<div class="md:hidden fixed bottom-6 right-6">
+<button class="h-14 w-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+</body></html>
