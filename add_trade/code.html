@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SilkTrade - Add Trade</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#dcdee4",
+                        "surface-dim": "#d4d6dc",
+                        "surface-tint": "#6366f1",
+                        "on-secondary-container": "#585a68",
+                        "tertiary-fixed": "#ede9fe",
+                        "on-background": "#2e3040",
+                        "tertiary-fixed-dim": "#c4b5fd",
+                        "secondary-fixed-dim": "#b8baca",
+                        "surface-container": "#e2e4ea",
+                        "inverse-surface": "#2e3040",
+                        "on-error-container": "#991b1b",
+                        "surface-container-low": "#e5e7ed",
+                        "surface": "#e8eaf0",
+                        "primary-fixed-dim": "#a5b4fc",
+                        "inverse-on-surface": "#e8eaf0",
+                        "on-surface-variant": "#585a68",
+                        "on-primary-fixed-variant": "#4338ca",
+                        "on-primary-container": "#e0e2ff",
+                        "secondary-container": "#d8dae6",
+                        "outline": "#8a8c9a",
+                        "on-surface": "#2e3040",
+                        "on-tertiary-container": "#3b1f63",
+                        "background": "#e8eaf0",
+                        "on-primary-fixed": "#1e1b4b",
+                        "primary-container": "#818cf8",
+                        "error-container": "#fee2e2",
+                        "on-secondary-fixed-variant": "#404252",
+                        "on-tertiary-fixed": "#2e1065",
+                        "tertiary-container": "#a78bfa",
+                        "secondary-fixed": "#d8dae6",
+                        "tertiary": "#7c3aed",
+                        "surface-container-lowest": "#f0f2f8",
+                        "secondary": "#6c6e7e",
+                        "error": "#dc2626",
+                        "surface-container-high": "#dcdee4",
+                        "primary-fixed": "#e0e2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary": "#6366f1",
+                        "surface-container-highest": "#d6d8de",
+                        "on-secondary-fixed": "#1a1b26",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#d0d2dc",
+                        "inverse-primary": "#a5b4fc",
+                        "on-tertiary-fixed-variant": "#5b21b6",
+                        "surface-bright": "#edeef4",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #e8eaf0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #2e3040;
+        }
+        .neomorph-raised {
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.08), -6px -6px 12px rgba(255,255,255,0.6);
+        }
+        .neomorph-inset {
+            box-shadow: inset 4px 4px 8px rgba(0,0,0,0.06), inset -4px -4px 8px rgba(255,255,255,0.5);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-fixed text-on-surface">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center px-8 w-full sticky top-0 z-40 bg-[#e8eaf0] dark:bg-slate-900 shadow-[6px_6px_12px_rgba(0,0,0,0.08),-6px_-6px_12px_rgba(255,255,255,0.6)] dark:shadow-none h-16">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 tracking-tight">SilkTrade</span>
+<div class="hidden md:flex items-center gap-4">
+<div class="neomorph-inset bg-surface px-4 py-1.5 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-medium" placeholder="Search markets..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="neomorph-raised bg-surface p-2 rounded-xl text-on-surface-variant hover:text-indigo-500 transition-colors active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="neomorph-raised bg-surface p-2 rounded-xl text-on-surface-variant hover:text-indigo-500 transition-colors active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<button class="neomorph-raised bg-surface px-4 py-2 rounded-xl text-indigo-600 font-semibold hover:text-indigo-500 transition-colors active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                Add Trade
+            </button>
+<div class="h-10 w-10 rounded-full neomorph-raised border-2 border-surface overflow-hidden">
+<img alt="User avatar" data-alt="professional headshot of a young trader in a clean modern workspace with soft lighting and neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIu-_LRWbbS99vmllDCYIX0ln9Fo6esLjOYkDI_xpWt4QbE4ZMx6aRjztNMKI_dYRzPgyCl5m23UedzLpiQLlM7cp3dE5tWQVID4Z590ym_YURFCKw9wpF3QM0dGmMbsRKUyBzQ9xEOZ5WoMo1wLHihv8hPc_wEmDbboTnXI3yTF2s9BBr_stwQryBo9e8BPog-nXAYUl0UtuNplUsuSVnR3-ZiARMIF9dRy2G4i28af9IyFGwYxmcsa-0QmAsiH7IHPxjxKovdcU"/>
+</div>
+</div>
+</nav>
+<div class="flex min-h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 flex flex-col p-6 h-[calc(100vh-64px)] w-64 bg-[#e8eaf0] dark:bg-slate-900 font-['Plus_Jakarta_Sans'] font-medium text-sm">
+<div class="flex items-center gap-4 mb-10 px-4">
+<div class="w-10 h-10 neomorph-raised rounded-xl flex items-center justify-center bg-indigo-600 text-white">
+<span class="material-symbols-outlined">auto_graph</span>
+</div>
+<div>
+<div class="text-lg font-semibold text-slate-800 dark:text-slate-100 leading-tight">Journal</div>
+<div class="text-slate-500 dark:text-slate-400 text-xs">Pro Trader</div>
+</div>
+</div>
+<nav class="flex flex-col gap-4 flex-grow">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-indigo-500 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="text-indigo-600 dark:text-indigo-400 font-semibold shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] rounded-xl px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+                    Trade Log
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-indigo-500 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                    Analytics
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-indigo-500 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">lightbulb</span>
+                    Strategy
+                </a>
+</nav>
+<div class="mt-auto flex flex-col gap-2">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-indigo-500 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Help
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-indigo-500 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+                    Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-grow p-10 flex justify-center items-start">
+<div class="w-full max-w-4xl">
+<!-- Header -->
+<div class="mb-10 flex justify-between items-end">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Log New Trade</h1>
+<p class="text-on-surface-variant font-medium">Record your market execution with precision.</p>
+</div>
+<div class="flex gap-4">
+<div class="neomorph-raised bg-surface px-4 py-2 rounded-xl flex items-center gap-2 text-indigo-600 font-semibold text-sm">
+<span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                            MARKET OPEN
+                        </div>
+</div>
+</div>
+<!-- Add Trade Form -->
+<div class="neomorph-raised bg-surface rounded-xl p-10">
+<form class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Symbol -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-on-surface-variant ml-2">Symbol</label>
+<div class="neomorph-inset bg-surface p-4 rounded-xl flex items-center gap-3 group focus-within:ring-2 ring-indigo-500 ring-offset-4 ring-offset-surface transition-all">
+<span class="material-symbols-outlined text-indigo-500">currency_exchange</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-semibold placeholder:text-outline-variant w-full uppercase" placeholder="e.g. BTCUSDT" type="text"/>
+</div>
+</div>
+<!-- Position Size -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-on-surface-variant ml-2">Position Size</label>
+<div class="neomorph-inset bg-surface p-4 rounded-xl flex items-center gap-3 group focus-within:ring-2 ring-indigo-500 ring-offset-4 ring-offset-surface transition-all">
+<span class="material-symbols-outlined text-indigo-500">show_chart</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-semibold placeholder:text-outline-variant w-full" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Entry Price -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-on-surface-variant ml-2">Entry Price</label>
+<div class="neomorph-inset bg-surface p-4 rounded-xl flex items-center gap-3 group focus-within:ring-2 ring-indigo-500 ring-offset-4 ring-offset-surface transition-all">
+<span class="material-symbols-outlined text-indigo-500">login</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-semibold placeholder:text-outline-variant w-full" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Stop Loss -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-on-surface-variant ml-2">Stop Loss</label>
+<div class="neomorph-inset bg-surface p-4 rounded-xl flex items-center gap-3 group focus-within:ring-2 ring-error ring-offset-4 ring-offset-surface transition-all">
+<span class="material-symbols-outlined text-error">dangerous</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-semibold placeholder:text-outline-variant w-full" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Take Profit -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-on-surface-variant ml-2">Take Profit</label>
+<div class="neomorph-inset bg-surface p-4 rounded-xl flex items-center gap-3 group focus-within:ring-2 ring-indigo-600 ring-offset-4 ring-offset-surface transition-all">
+<span class="material-symbols-outlined text-indigo-600">verified</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-semibold placeholder:text-outline-variant w-full" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Trade Direction -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-on-surface-variant ml-2">Direction</label>
+<div class="flex gap-4 h-[56px]">
+<button class="flex-1 neomorph-raised bg-surface rounded-xl flex items-center justify-center gap-2 text-indigo-600 font-bold active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] transition-all" type="button">
+<span class="material-symbols-outlined">trending_up</span>
+                                        Long
+                                    </button>
+<button class="flex-1 neomorph-inset bg-surface rounded-xl flex items-center justify-center gap-2 text-on-surface-variant font-medium transition-all" type="button">
+<span class="material-symbols-outlined">trending_down</span>
+                                        Short
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Notes Area -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-on-surface-variant ml-2">Trading Setup/Psychology Notes</label>
+<div class="neomorph-inset bg-surface p-6 rounded-xl group focus-within:ring-2 ring-indigo-500 ring-offset-4 ring-offset-surface transition-all">
+<textarea class="bg-transparent border-none focus:ring-0 text-on-surface font-medium placeholder:text-outline-variant w-full resize-none leading-relaxed" placeholder="Describe your entry reason, mental state, and market context..." rows="6"></textarea>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between pt-6">
+<div class="flex items-center gap-4">
+<button class="neomorph-raised bg-surface p-4 rounded-xl text-on-surface-variant hover:text-error transition-all active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]" type="button">
+<span class="material-symbols-outlined">delete</span>
+</button>
+<button class="neomorph-raised bg-surface p-4 rounded-xl text-on-surface-variant hover:text-indigo-600 transition-all active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]" type="button">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+</div>
+<div class="flex gap-6">
+<button class="px-8 py-4 text-on-surface-variant font-semibold hover:text-indigo-600 transition-all" type="button">Cancel</button>
+<button class="neomorph-raised bg-surface px-12 py-4 rounded-xl text-indigo-600 font-extrabold tracking-wide hover:translate-y-[-2px] active:translate-y-[2px] active:shadow-[inset_6px_6px_12px_rgba(0,0,0,0.08),inset_-6px_-6px_12px_rgba(255,255,255,0.6)] transition-all" type="submit">
+                                    LOG TRADE
+                                </button>
+</div>
+</div>
+</form>
+</div>
+<!-- Secondary Visual Support -->
+<div class="mt-12 grid grid-cols-2 gap-8">
+<div class="neomorph-raised bg-surface rounded-xl p-8 flex items-center gap-6">
+<div class="w-16 h-16 neomorph-inset rounded-full flex items-center justify-center bg-surface">
+<span class="material-symbols-outlined text-indigo-500 text-3xl">calculate</span>
+</div>
+<div>
+<div class="text-on-surface-variant text-sm font-semibold mb-1">Potential Risk/Reward</div>
+<div class="text-2xl font-bold text-on-surface">1 : 3.45</div>
+</div>
+</div>
+<div class="neomorph-raised bg-surface rounded-xl p-8 flex items-center gap-6">
+<div class="w-16 h-16 neomorph-inset rounded-full flex items-center justify-center bg-surface text-error">
+<span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+</div>
+<div>
+<div class="text-on-surface-variant text-sm font-semibold mb-1">Max Capital At Risk</div>
+<div class="text-2xl font-bold text-on-surface">$245.00 <span class="text-sm font-normal text-on-surface-variant ml-1">(2%)</span></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

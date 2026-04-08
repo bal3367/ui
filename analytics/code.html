@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SilkTrade - Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #e8eaf0;
+            color: #2e3040;
+            margin: 0;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Neomorphic Shadow Utilities */
+        .neomorph-raised {
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.08), -6px -6px 12px rgba(255,255,255,0.6);
+        }
+        .neomorph-inset {
+            box-shadow: inset 4px 4px 8px rgba(0,0,0,0.06), inset -4px -4px 8px rgba(255,255,255,0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#dcdee4",
+                        "surface-dim": "#d4d6dc",
+                        "surface-tint": "#6366f1",
+                        "on-secondary-container": "#585a68",
+                        "tertiary-fixed": "#ede9fe",
+                        "on-background": "#2e3040",
+                        "tertiary-fixed-dim": "#c4b5fd",
+                        "secondary-fixed-dim": "#b8baca",
+                        "surface-container": "#e2e4ea",
+                        "inverse-surface": "#2e3040",
+                        "on-error-container": "#991b1b",
+                        "surface-container-low": "#e5e7ed",
+                        "surface": "#e8eaf0",
+                        "primary-fixed-dim": "#a5b4fc",
+                        "inverse-on-surface": "#e8eaf0",
+                        "on-surface-variant": "#585a68",
+                        "on-primary-fixed-variant": "#4338ca",
+                        "on-primary-container": "#e0e2ff",
+                        "secondary-container": "#d8dae6",
+                        "outline": "#8a8c9a",
+                        "on-surface": "#2e3040",
+                        "on-tertiary-container": "#3b1f63",
+                        "background": "#e8eaf0",
+                        "on-primary-fixed": "#1e1b4b",
+                        "primary-container": "#818cf8",
+                        "error-container": "#fee2e2",
+                        "on-secondary-fixed-variant": "#404252",
+                        "on-tertiary-fixed": "#2e1065",
+                        "tertiary-container": "#a78bfa",
+                        "secondary-fixed": "#d8dae6",
+                        "tertiary": "#7c3aed",
+                        "surface-container-lowest": "#f0f2f8",
+                        "secondary": "#6c6e7e",
+                        "error": "#dc2626",
+                        "surface-container-high": "#dcdee4",
+                        "primary-fixed": "#e0e2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary": "#6366f1",
+                        "surface-container-highest": "#d6d8de",
+                        "on-secondary-fixed": "#1a1b26",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#d0d2dc",
+                        "inverse-primary": "#a5b4fc",
+                        "on-tertiary-fixed-variant": "#5b21b6",
+                        "surface-bright": "#edeef4",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 flex flex-col p-6 h-full border-r-0 h-screen w-64 rounded-r-2xl bg-[#e8eaf0] dark:bg-slate-900 shadow-[6px_6px_12px_rgba(0,0,0,0.08),-6px_-6px_12px_rgba(255,255,255,0.6)] z-50">
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center neomorph-raised">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<h1 class="text-lg font-semibold text-slate-800 dark:text-slate-100 leading-tight">Journal</h1>
+<p class="text-xs text-slate-500 font-medium">Pro Trader</p>
+</div>
+</div>
+<nav class="flex-1 space-y-4">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-indigo-500 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-indigo-500 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Trade Log</span>
+</a>
+<!-- Active Tab: Analytics -->
+<a class="flex items-center gap-3 text-indigo-600 dark:text-indigo-400 font-semibold shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] rounded-xl px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-indigo-500 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Strategy</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-indigo-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Help</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-indigo-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar Shell -->
+<header class="flex justify-between items-center px-8 w-full sticky top-0 z-40 w-full h-16 bg-[#e8eaf0] dark:bg-slate-900 shadow-[6px_6px_12px_rgba(0,0,0,0.08),-6px_-6px_12px_rgba(255,255,255,0.6)] dark:shadow-none">
+<div class="flex items-center gap-6">
+<span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 tracking-tight font-['Plus_Jakarta_Sans']">SilkTrade</span>
+<div class="flex items-center gap-2 bg-surface neomorph-inset px-4 py-2 rounded-xl">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface-variant w-48 font-medium" placeholder="Search analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="neomorph-raised p-2 rounded-xl text-slate-500 hover:text-primary transition-colors active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="neomorph-raised p-2 rounded-xl text-slate-500 hover:text-primary transition-colors active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="flex items-center gap-2 neomorph-raised px-4 py-2 rounded-xl text-indigo-600 font-semibold text-sm active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add Trade</span>
+</button>
+<div class="w-10 h-10 rounded-full neomorph-raised border-2 border-white/50 overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a confident male professional with a friendly smile, clean studio lighting, modern minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEKOM1-rNmRM8nQeMJRDXm9CJ5bV1mCDAzY-u20BeAh93aQ2Iu0ipeBmJHszPvSGKnTRgEyiewPOfTgFSaAxnrvvJ1veKtVy1IE7sSL4Jfp7_uPEsN14oQCI7jtwHjiPOv3ss0bH19Nhkvu2qbXEo68Kv9uneRQdJPq8iZmPRl8By0Xbuu7uu6LV8tEdUoWt7moDDu_I8bnppUe-UpfuobrCkDZDlNDd3wEik1SVATVlXkstNRxbfYK5IddBN4njJeqiQaJV69GC4"/>
+</div>
+</div>
+</header>
+<!-- Analytics Dashboard Content -->
+<section class="p-8 space-y-8">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Performance Breakdown</h2>
+<p class="text-on-surface-variant mt-1 font-medium">Detailed statistical overview of your trading efficiency.</p>
+</div>
+<div class="flex gap-4">
+<div class="neomorph-inset p-1 rounded-xl flex">
+<button class="px-4 py-2 text-xs font-bold rounded-lg text-primary neomorph-raised bg-surface">7D</button>
+<button class="px-4 py-2 text-xs font-bold rounded-lg text-slate-500">30D</button>
+<button class="px-4 py-2 text-xs font-bold rounded-lg text-slate-500">90D</button>
+<button class="px-4 py-2 text-xs font-bold rounded-lg text-slate-500">ALL</button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Equity Curve Chart (Large Area) -->
+<div class="col-span-12 lg:col-span-8 neomorph-raised rounded-3xl p-8 bg-surface">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-lg font-bold text-on-surface">Equity Curve</h3>
+<p class="text-sm text-on-surface-variant">Cumulative P/L Growth</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-indigo-600">+$12,450.82</span>
+<span class="block text-[10px] uppercase tracking-wider font-bold text-emerald-500">+14.2% Growth</span>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-1 relative px-2">
+<!-- Simulated Chart Path -->
+<div class="absolute inset-x-0 bottom-0 top-0 flex items-end">
+<svg class="w-full h-full opacity-30" viewbox="0 0 1000 200">
+<path d="M0,180 Q100,160 200,140 T400,110 T600,80 T800,40 T1000,10" fill="none" stroke="#6366f1" stroke-linecap="round" stroke-width="6"></path>
+</svg>
+</div>
+<!-- Decorative chart grid -->
+<div class="w-full h-full absolute inset-0 border-b-2 border-surface-variant/30 flex flex-col justify-between py-2">
+<div class="border-b border-surface-variant/20 w-full h-0"></div>
+<div class="border-b border-surface-variant/20 w-full h-0"></div>
+<div class="border-b border-surface-variant/20 w-full h-0"></div>
+</div>
+<div class="relative z-10 w-full h-full flex items-end justify-between px-4 pb-2">
+<div class="text-[10px] font-bold text-slate-400">Jan</div>
+<div class="text-[10px] font-bold text-slate-400">Feb</div>
+<div class="text-[10px] font-bold text-slate-400">Mar</div>
+<div class="text-[10px] font-bold text-slate-400">Apr</div>
+<div class="text-[10px] font-bold text-slate-400">May</div>
+</div>
+</div>
+</div>
+<!-- Key Metrics Stack -->
+<div class="col-span-12 lg:col-span-4 grid grid-cols-2 gap-4">
+<div class="neomorph-raised rounded-3xl p-6 bg-surface flex flex-col justify-center items-center">
+<span class="material-symbols-outlined text-indigo-500 mb-2">stars</span>
+<span class="text-2xl font-bold">68%</span>
+<span class="text-[10px] uppercase font-bold text-slate-400">Win Rate</span>
+</div>
+<div class="neomorph-raised rounded-3xl p-6 bg-surface flex flex-col justify-center items-center">
+<span class="material-symbols-outlined text-violet-500 mb-2">swap_calls</span>
+<span class="text-2xl font-bold">2.4</span>
+<span class="text-[10px] uppercase font-bold text-slate-400">Profit Factor</span>
+</div>
+<div class="neomorph-raised rounded-3xl p-6 bg-surface flex flex-col justify-center items-center">
+<span class="material-symbols-outlined text-orange-500 mb-2">trending_down</span>
+<span class="text-2xl font-bold">4.2%</span>
+<span class="text-[10px] uppercase font-bold text-slate-400">Max Drawdown</span>
+</div>
+<div class="neomorph-raised rounded-3xl p-6 bg-surface flex flex-col justify-center items-center">
+<span class="material-symbols-outlined text-emerald-500 mb-2">timer</span>
+<span class="text-2xl font-bold">18m</span>
+<span class="text-[10px] uppercase font-bold text-slate-400">Avg Duration</span>
+</div>
+</div>
+<!-- Win/Loss Distribution (Pie-ish) -->
+<div class="col-span-12 md:col-span-5 neomorph-raised rounded-3xl p-8 bg-surface">
+<h3 class="text-lg font-bold text-on-surface mb-6">Win/Loss Distribution</h3>
+<div class="flex items-center justify-center py-4">
+<div class="relative w-48 h-48">
+<!-- Circular Progress Simulation -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-variant/30" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="24"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502" stroke-dashoffset="160" stroke-width="24"></circle>
+<circle class="text-tertiary" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502" stroke-dashoffset="400" stroke-width="24"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-extrabold">142</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Total Trades</span>
+</div>
+</div>
+</div>
+<div class="space-y-3 mt-6">
+<div class="flex justify-between items-center px-4 py-2 neomorph-inset rounded-xl">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs font-bold">Wins</span>
+</div>
+<span class="text-xs font-bold">96 Trades</span>
+</div>
+<div class="flex justify-between items-center px-4 py-2 neomorph-inset rounded-xl">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs font-bold">Losses</span>
+</div>
+<span class="text-xs font-bold">42 Trades</span>
+</div>
+<div class="flex justify-between items-center px-4 py-2 neomorph-inset rounded-xl opacity-60">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+<span class="text-xs font-bold">Breakeven</span>
+</div>
+<span class="text-xs font-bold">4 Trades</span>
+</div>
+</div>
+</div>
+<!-- P/L by Day of Week (Bar Chart) -->
+<div class="col-span-12 md:col-span-7 neomorph-raised rounded-3xl p-8 bg-surface">
+<h3 class="text-lg font-bold text-on-surface mb-6">P/L by Day of Week</h3>
+<div class="h-64 flex items-end justify-between px-4 pb-8">
+<!-- Mon -->
+<div class="flex flex-col items-center gap-3 w-8">
+<div class="w-full bg-primary-container/20 rounded-t-lg h-[40%] neomorph-raised relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">+$420</div>
+</div>
+<span class="text-[10px] font-extrabold text-slate-400">MON</span>
+</div>
+<!-- Tue -->
+<div class="flex flex-col items-center gap-3 w-8">
+<div class="w-full bg-primary rounded-t-lg h-[85%] neomorph-raised relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">+$910</div>
+</div>
+<span class="text-[10px] font-extrabold text-slate-400">TUE</span>
+</div>
+<!-- Wed -->
+<div class="flex flex-col items-center gap-3 w-8">
+<div class="w-full bg-error/20 rounded-t-lg h-[25%] neomorph-raised relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-error">-$210</div>
+</div>
+<span class="text-[10px] font-extrabold text-slate-400">WED</span>
+</div>
+<!-- Thu -->
+<div class="flex flex-col items-center gap-3 w-8">
+<div class="w-full bg-primary rounded-t-lg h-[65%] neomorph-raised relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">+$680</div>
+</div>
+<span class="text-[10px] font-extrabold text-slate-400">THU</span>
+</div>
+<!-- Fri -->
+<div class="flex flex-col items-center gap-3 w-8">
+<div class="w-full bg-tertiary rounded-t-lg h-[50%] neomorph-raised relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-tertiary">+$520</div>
+</div>
+<span class="text-[10px] font-extrabold text-slate-400">FRI</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-variant/30">
+<div class="flex justify-between items-center text-sm font-medium">
+<span class="text-on-surface-variant">Most Profitable Day:</span>
+<span class="text-indigo-600 font-bold uppercase tracking-wide">Tuesday</span>
+</div>
+</div>
+</div>
+<!-- Recent Performance Highlights -->
+<div class="col-span-12 neomorph-raised rounded-3xl p-8 bg-surface">
+<h3 class="text-lg font-bold text-on-surface mb-6">Strategy Efficiency</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="neomorph-inset p-6 rounded-2xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-on-primary-fixed">bolt</span>
+</div>
+<span class="text-sm font-bold">Trend Following</span>
+</div>
+<div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[75%]"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-slate-500">
+<span>Efficiency Score</span>
+<span class="text-primary">75%</span>
+</div>
+</div>
+<div class="neomorph-inset p-6 rounded-2xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-on-tertiary-fixed">mediation</span>
+</div>
+<span class="text-sm font-bold">Mean Reversion</span>
+</div>
+<div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[42%]"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-slate-500">
+<span>Efficiency Score</span>
+<span class="text-tertiary">42%</span>
+</div>
+</div>
+<div class="neomorph-inset p-6 rounded-2xl">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-on-secondary-fixed">layers</span>
+</div>
+<span class="text-sm font-bold">Breakout Range</span>
+</div>
+<div class="w-full bg-surface-dim h-2 rounded-full overflow-hidden">
+<div class="bg-indigo-400 h-full w-[60%]"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-slate-500">
+<span>Efficiency Score</span>
+<span class="text-indigo-400">60%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Padding -->
+<footer class="h-20"></footer>
+</main>
+</body></html>
