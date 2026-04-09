@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SYNTAX_PROTOCOL // AUTH_GATE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#b92902",
+                        "on-secondary": "#495800",
+                        "background": "#0e0e0e",
+                        "tertiary-dim": "#e6e655",
+                        "on-primary": "#336600",
+                        "inverse-primary": "#366c00",
+                        "error": "#ff7351",
+                        "tertiary-fixed": "#f5f562",
+                        "secondary-dim": "#c7e05c",
+                        "error-dim": "#d53d18",
+                        "on-primary-container": "#2e5d00",
+                        "tertiary-fixed-dim": "#e6e655",
+                        "surface-container": "#191919",
+                        "on-secondary-container": "#f1ffb3",
+                        "on-secondary-fixed": "#384400",
+                        "primary-fixed": "#88fe00",
+                        "primary-container": "#88fe00",
+                        "on-surface": "#ffffff",
+                        "on-tertiary-fixed": "#494900",
+                        "primary-fixed-dim": "#7fef00",
+                        "secondary": "#d4ee68",
+                        "on-primary-fixed": "#224800",
+                        "surface-dim": "#0e0e0e",
+                        "on-tertiary": "#626200",
+                        "on-background": "#ffffff",
+                        "surface": "#0e0e0e",
+                        "secondary-fixed-dim": "#c7e05c",
+                        "on-error": "#450900",
+                        "surface-container-highest": "#262626",
+                        "on-surface-variant": "#ababab",
+                        "inverse-on-surface": "#555555",
+                        "primary-dim": "#7fef00",
+                        "on-error-container": "#ffd2c8",
+                        "surface-container-lowest": "#000000",
+                        "on-secondary-fixed-variant": "#526200",
+                        "on-primary-fixed-variant": "#346800",
+                        "surface-bright": "#2c2c2c",
+                        "secondary-fixed": "#d4ee68",
+                        "surface-tint": "#d0ffa6",
+                        "on-tertiary-fixed-variant": "#666600",
+                        "inverse-surface": "#f9f9f9",
+                        "surface-container-low": "#131313",
+                        "tertiary-container": "#f2f260",
+                        "tertiary": "#fffeac",
+                        "outline-variant": "#484848",
+                        "secondary-container": "#556500",
+                        "surface-variant": "#262626",
+                        "outline": "#757575",
+                        "surface-container-high": "#1f1f1f",
+                        "primary": "#d0ffa6",
+                        "on-tertiary-container": "#5a5a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0e0e0e;
+            overflow: hidden;
+        }
+        .code-scroll {
+            mask-image: linear-gradient(to bottom, transparent, black, transparent);
+            font-family: monospace;
+            font-size: 10px;
+            line-height: 1.2;
+            pointer-events: none;
+        }
+        .pixel-logo {
+            image-rendering: pixelated;
+        }
+        .glow-box {
+            box-shadow: 0 0 40px rgba(136, 254, 0, 0.05);
+        }
+        .cursor-blink {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background-color: #88fe00;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary">
+<!-- BACKGROUND TEXTURE: SCROLLING CODE -->
+<div class="fixed inset-0 z-0 opacity-20 code-scroll flex justify-around select-none">
+<div class="space-y-1 text-primary">
+<div>// AUTH_SEQUENCE_INITIATED</div>
+<div>// ENCRYPTING_HANDSHAKE...</div>
+<div>// PING_LATENCY: 12ms</div>
+<div>// LOADING_ASSETS_FROM_SYNTAX_CORE</div>
+<div>// BYPASS_AUTH_v3.2</div>
+<div>// SYSTEM_UPTIME: 14482:02:11</div>
+<div>// SECURITY_LEVEL: OMEGA</div>
+<div>// [OK] KERNEL_LOADED</div>
+<div>// [OK] DRIVER_SYN_V4</div>
+<div>// ERROR: RETRYING_CONNECTION_01</div>
+<div>// AUTH_SEQUENCE_INITIATED</div>
+<div>// ENCRYPTING_HANDSHAKE...</div>
+<div>// PING_LATENCY: 12ms</div>
+<div>// LOADING_ASSETS_FROM_SYNTAX_CORE</div>
+<div>// BYPASS_AUTH_v3.2</div>
+<div>// SYSTEM_UPTIME: 14482:02:11</div>
+<div>// SECURITY_LEVEL: OMEGA</div>
+<div>// [OK] KERNEL_LOADED</div>
+<div>// [OK] DRIVER_SYN_V4</div>
+</div>
+<div class="space-y-1 text-on-surface-variant hidden md:block">
+<div>0x442A BF88 F201 0041</div>
+<div>0x9188 CE77 AA21 9904</div>
+<div>0x1102 FF42 DD12 3341</div>
+<div>0xBAA2 1109 8871 0021</div>
+<div>0x442A BF88 F201 0041</div>
+<div>0x9188 CE77 AA21 9904</div>
+<div>0x1102 FF42 DD12 3341</div>
+<div>0xBAA2 1109 8871 0021</div>
+<div>0x442A BF88 F201 0041</div>
+<div>0x9188 CE77 AA21 9904</div>
+<div>0x1102 FF42 DD12 3341</div>
+<div>0xBAA2 1109 8871 0021</div>
+</div>
+<div class="space-y-1 text-primary opacity-50">
+<div>GET /v1/markets/stream HTTP/1.1</div>
+<div>Host: syntax-protocol-core.io</div>
+<div>Accept: application/json</div>
+<div>Connection: keep-alive</div>
+<div>X-Syntax-Operator: 00-11-22</div>
+<div>GET /v1/markets/stream HTTP/1.1</div>
+<div>Host: syntax-protocol-core.io</div>
+<div>Accept: application/json</div>
+<div>Connection: keep-alive</div>
+<div>X-Syntax-Operator: 00-11-22</div>
+<div>GET /v1/markets/stream HTTP/1.1</div>
+<div>Host: syntax-protocol-core.io</div>
+<div>Accept: application/json</div>
+<div>Connection: keep-alive</div>
+<div>X-Syntax-Operator: 00-11-22</div>
+</div>
+</div>
+<!-- MAIN CONTENT CONTAINER -->
+<main class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8">
+<!-- LOGO SECTION -->
+<div class="mb-12 text-center">
+<div class="inline-block p-4 border border-outline-variant/20 bg-surface-container-low mb-6">
+<img alt="SYNTAX_LOGO" class="pixel-logo w-16 h-16 grayscale brightness-200" data-alt="pixelated neon green lightning bolt icon on a dark square background, representing digital speed and power" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWrPKO6UMUlivnA-Zky0rEJfOuSidyT-xXj6oOZIiCNvYAjSt1GOeYCiVlc36CwfM9wkjVGJG3RNDYdWKWSPluz08yga6qbtqyPB2oQjBnsLUmZr122MHAzkXFi8BoG2Bc8Jac0JllI3KckNfRC2xa_FLufsjo0GRJHYd0U-9cmOYxkQQn9YsYLGBdIMgP-QyKvR644CA2Ch2NM97VoPSw-7keZMzsLRBqLT7WDFCInvxi20Kqb1gBQJcGibDjrIcWuC6Nd6fgDvQ"/>
+</div>
+<h1 class="text-4xl md:text-6xl font-black tracking-tighter text-primary uppercase font-mono">
+                SYNTAX_PROTOCOL
+            </h1>
+<p class="text-on-surface-variant font-mono text-xs tracking-widest mt-2 uppercase">
+                // AUTHORIZED_OPERATORS_ONLY // SECURITY_CLEARANCE_REQUIRED
+            </p>
+</div>
+<!-- AUTH FORM -->
+<div class="w-full max-w-md bg-surface-container-lowest glow-box border border-outline-variant/15 p-1">
+<div class="bg-surface-container-low p-8">
+<div class="mb-8 flex justify-between items-start">
+<div>
+<h2 class="text-xl font-bold text-on-surface uppercase tracking-tight">Terminal Authorization</h2>
+<span class="text-[10px] text-on-surface-variant font-mono uppercase tracking-[0.2em]">Sequence: AUTH_442_B</span>
+</div>
+<div class="text-primary text-[10px] font-mono animate-pulse">
+                        STATUS: READY_
+                    </div>
+</div>
+<form class="space-y-10">
+<!-- Operator ID Input -->
+<div class="relative group">
+<label class="block text-[10px] font-mono text-on-surface-variant uppercase tracking-widest mb-2 px-1">
+                            Operator ID
+                        </label>
+<div class="flex items-center gap-2 border-b border-outline-variant transition-colors group-focus-within:border-primary">
+<span class="text-primary font-mono text-sm">&gt;</span>
+<input class="w-full bg-transparent border-none text-primary font-mono placeholder:text-outline focus:ring-0 focus:outline-none uppercase py-2" placeholder="ENTER_ID" type="text"/>
+</div>
+</div>
+<!-- Access Token Input -->
+<div class="relative group">
+<label class="block text-[10px] font-mono text-on-surface-variant uppercase tracking-widest mb-2 px-1">
+                            Access Token
+                        </label>
+<div class="flex items-center gap-2 border-b border-outline-variant transition-colors group-focus-within:border-primary">
+<span class="text-primary font-mono text-sm">&gt;</span>
+<input class="w-full bg-transparent border-none text-primary font-mono placeholder:text-outline focus:ring-0 focus:outline-none py-2" placeholder="********" type="password"/>
+<span class="cursor-blink"></span>
+</div>
+</div>
+<!-- CTA Actions -->
+<div class="pt-4 space-y-4">
+<button class="w-full bg-primary-container text-on-primary font-bold py-4 uppercase tracking-tighter transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+                            EXECUTE_HANDSHAKE
+                        </button>
+<div class="flex items-center justify-center gap-6">
+<button class="text-[10px] font-mono text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-widest" type="button">
+<span class="material-symbols-outlined text-xs" data-icon="fingerprint">fingerprint</span>
+                                BIO_OVERRIDE
+                            </button>
+<span class="text-outline-variant">|</span>
+<button class="text-[10px] font-mono text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-widest" type="button">
+<span class="material-symbols-outlined text-xs" data-icon="key">key</span>
+                                RECOVER_SEED
+                            </button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- MOCKUP BIOMETRIC OVERLAY (SUBTLE) -->
+<div class="mt-12 w-full max-w-xs p-4 border border-outline-variant/10 rounded-none bg-surface-container-high/30 backdrop-blur-md flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest border border-primary/20 flex items-center justify-center relative group cursor-pointer">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="qr_code_2" style="font-variation-settings: 'FILL' 0;">qr_code_2</span>
+<div class="absolute inset-0 border border-primary opacity-20 scale-125"></div>
+</div>
+<div>
+<div class="text-[10px] text-primary-dim font-mono font-bold uppercase tracking-widest">Mobile Sync</div>
+<div class="text-[9px] text-on-surface-variant font-mono uppercase">Authorize via Mobile App Node</div>
+</div>
+</div>
+<!-- FOOTER INFO -->
+<footer class="fixed bottom-0 left-0 w-full px-8 py-4 flex justify-between items-center z-50">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<div class="w-1 h-1 bg-primary rounded-full animate-pulse"></div>
+<span class="text-[10px] font-mono text-on-surface-variant tracking-widest uppercase">SYSTM_UP: 99.98%</span>
+</div>
+<span class="text-outline-variant text-[10px] uppercase font-mono">NODE: FRA_01</span>
+</div>
+<div class="text-[10px] font-mono text-on-surface-variant tracking-widest uppercase">
+                © 2024 SYNTAX_PROTOCOL // SECURED_BY_RSA_4096
+            </div>
+</footer>
+<!-- SCANLINE OVERLAY -->
+<div class="fixed inset-0 pointer-events-none z-[100] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.01),rgba(0,255,0,0.005),rgba(0,0,255,0.01))] bg-[length:100%_2px,3px_100%]"></div>
+</main>
+</body></html>

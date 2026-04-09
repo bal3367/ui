@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#d4ee68",
+                        "outline-variant": "#484848",
+                        "tertiary-fixed-dim": "#e6e655",
+                        "tertiary-dim": "#e6e655",
+                        "on-tertiary": "#626200",
+                        "surface-container-highest": "#262626",
+                        "inverse-on-surface": "#555555",
+                        "surface-variant": "#262626",
+                        "tertiary-container": "#f2f260",
+                        "error-container": "#b92902",
+                        "on-tertiary-fixed": "#494900",
+                        "primary-fixed-dim": "#7fef00",
+                        "on-background": "#ffffff",
+                        "on-secondary": "#495800",
+                        "secondary-fixed": "#d4ee68",
+                        "on-secondary-container": "#f1ffb3",
+                        "tertiary": "#fffeac",
+                        "on-primary": "#336600",
+                        "error": "#ff7351",
+                        "on-tertiary-container": "#5a5a00",
+                        "primary-fixed": "#88fe00",
+                        "surface-container-high": "#1f1f1f",
+                        "on-error": "#450900",
+                        "on-surface": "#ffffff",
+                        "inverse-surface": "#f9f9f9",
+                        "surface": "#0e0e0e",
+                        "error-dim": "#d53d18",
+                        "secondary-fixed-dim": "#c7e05c",
+                        "secondary-dim": "#c7e05c",
+                        "secondary-container": "#556500",
+                        "on-primary-fixed": "#224800",
+                        "surface-bright": "#2c2c2c",
+                        "on-error-container": "#ffd2c8",
+                        "on-secondary-fixed": "#384400",
+                        "primary-container": "#88fe00",
+                        "on-secondary-fixed-variant": "#526200",
+                        "outline": "#757575",
+                        "on-surface-variant": "#ababab",
+                        "surface-container-lowest": "#000000",
+                        "surface-dim": "#0e0e0e",
+                        "tertiary-fixed": "#f5f562",
+                        "on-primary-fixed-variant": "#346800",
+                        "on-tertiary-fixed-variant": "#666600",
+                        "surface-container": "#191919",
+                        "on-primary-container": "#2e5d00",
+                        "surface-tint": "#d0ffa6",
+                        "surface-container-low": "#131313",
+                        "primary": "#d0ffa6",
+                        "background": "#0e0e0e",
+                        "primary-dim": "#7fef00",
+                        "inverse-primary": "#366c00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #0e0e0e; }
+        ::-webkit-scrollbar-thumb { background: #484848; }
+        .syntax-glow { text-shadow: 0 0 10px rgba(208, 255, 166, 0.3); }
+        .terminal-well { background: linear-gradient(180deg, #131313 0%, #000000 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- SideNavBar (Authority: JSON) -->
+<nav class="fixed left-0 top-0 flex flex-col h-full z-40 bg-[#0e0e0e] dark:bg-[#131313] font-['Space_Grotesk'] font-medium rounded-none w-64 h-screen border-r border-[#484848]/15">
+<div class="p-6">
+<div class="text-lg font-black text-[#88fe00] mb-8">TERMINAL_01</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="tracking-tight">DASHBOARD</span>
+</a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="tracking-tight">CALENDAR</span>
+</a>
+<a class="flex items-center gap-3 text-[#0e0e0e] bg-[#88fe00] font-bold px-4 py-2 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="tracking-tight">JOURNAL</span>
+</a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="tracking-tight">ANALYTICS</span>
+</a>
+</div>
+</div>
+<div class="mt-auto p-6 space-y-4">
+<button class="w-full bg-primary-container text-on-primary font-bold py-3 text-sm tracking-widest hover:brightness-110 active:scale-95 duration-75">
+                EXECUTE_TRADE
+            </button>
+<div class="flex items-center gap-3 px-4">
+<div class="w-8 h-8 bg-surface-container-highest flex items-center justify-center text-[10px] font-mono border border-outline-variant/30">OP</div>
+<div>
+<div class="text-[10px] font-bold leading-none">OPERATOR_V2.4</div>
+<div class="text-[8px] text-on-surface-variant leading-none mt-1">TRADER_AVATAR</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/15 space-y-1">
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-1 text-xs hover:text-[#d0ffa6]" href="#">
+<span class="material-symbols-outlined text-sm">help</span> SUPPORT
+                </a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-1 text-xs hover:text-[#d0ffa6]" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> LOGOUT
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content Shell -->
+<main class="ml-64 h-screen flex flex-col relative bg-surface">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="flex justify-between items-center w-full px-6 py-3 bg-[#0e0e0e] dark:bg-[#000000] font-['Space_Grotesk'] tracking-tighter uppercase rounded-none border-b border-[#484848]/15 z-30">
+<div class="flex items-center gap-8">
+<div class="text-xl font-bold text-[#88fe00] font-mono">SYNTAX_PROTOCOL</div>
+<nav class="hidden md:flex gap-6 text-xs font-bold">
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_MARKETS</a>
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_LIVE_FEED</a>
+<a class="text-[#d0ffa6] border-b-2 border-[#88fe00] pb-1" href="#">//_EXECUTIONS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute left-2 top-1/2 -translate-y-1/2 text-[#88fe00] text-xs font-mono">&gt;</span>
+<input class="bg-surface-container-low border-none border-b border-outline-variant text-[10px] pl-6 pr-4 py-1 focus:ring-0 focus:border-primary w-48 text-on-surface-variant font-mono" placeholder="SEARCH_DATABASE" type="text"/>
+</div>
+<span class="material-symbols-outlined text-[#ababab] cursor-pointer hover:text-primary">terminal</span>
+<span class="material-symbols-outlined text-[#ababab] cursor-pointer hover:text-primary">settings</span>
+</div>
+</header>
+<!-- Journal Content Area -->
+<section class="flex-1 overflow-hidden flex flex-col p-6 space-y-6">
+<!-- Context Header -->
+<div class="flex justify-between items-end">
+<div>
+<h1 class="text-3xl font-black tracking-tighter syntax-glow">JOURNAL_LOG_EXPANSION</h1>
+<p class="text-[10px] font-mono text-on-surface-variant mt-1 tracking-widest">// SYSTEM_INDEX: TRADE_EXECUTIONS_ARRAY_v4.0.2</p>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase">Market Condition</span>
+<div class="flex gap-2 mt-1">
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] font-mono border border-primary/20 text-primary">[ VOLATILE ]</span>
+<span class="px-2 py-1 bg-surface-container-low text-[10px] font-mono border border-outline-variant/30 text-on-surface-variant">[ TRENDING ]</span>
+<span class="px-2 py-1 bg-surface-container-low text-[10px] font-mono border border-outline-variant/30 text-on-surface-variant">[ RANGE ]</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase">Strategy Used</span>
+<div class="flex gap-2 mt-1">
+<span class="px-2 py-1 bg-surface-container-low text-[10px] font-mono border border-outline-variant/30 text-on-surface-variant">[ BREAKOUT ]</span>
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] font-mono border border-primary/20 text-primary">[ MEAN_REVERSION ]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Terminal Spreadsheet -->
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant/10 overflow-auto terminal-well">
+<table class="w-full border-collapse font-mono text-xs text-left">
+<thead class="sticky top-0 bg-surface-container-high z-10">
+<tr class="border-b border-outline-variant/30 text-on-surface-variant">
+<th class="py-3 px-4 font-bold tracking-widest text-[10px]">ID_TAG</th>
+<th class="py-3 px-4 font-bold tracking-widest text-[10px]">EXECUTION_DATE</th>
+<th class="py-3 px-4 font-bold tracking-widest text-[10px]">ASSET_PAIR</th>
+<th class="py-3 px-4 font-bold tracking-widest text-[10px]">OP_TYPE</th>
+<th class="py-3 px-4 font-bold tracking-widest text-[10px]">ENTRY_VAL</th>
+<th class="py-3 px-4 font-bold tracking-widest text-[10px]">EXIT_VAL</th>
+<th class="py-3 px-4 font-bold tracking-widest text-[10px]">NET_RESULT</th>
+<th class="py-3 px-4 font-bold tracking-widest text-[10px]">STRAT_ID</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Row 1 -->
+<tr class="hover:bg-primary/5 group transition-colors cursor-crosshair">
+<td class="py-3 px-4 text-on-surface-variant opacity-50">#00142</td>
+<td class="py-3 px-4 text-on-surface">2023.10.24_14:32:01</td>
+<td class="py-3 px-4 font-bold text-primary">BTC/USDT</td>
+<td class="py-3 px-4"><span class="text-primary-dim px-2 border border-primary-dim/30">LONG</span></td>
+<td class="py-3 px-4">34,210.00</td>
+<td class="py-3 px-4">35,102.50</td>
+<td class="py-3 px-4 text-primary font-bold">+2.61%</td>
+<td class="py-3 px-4 text-on-surface-variant font-mono">[ BREAK_H1 ]</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary/5 group transition-colors cursor-crosshair bg-surface-container-low/30">
+<td class="py-3 px-4 text-on-surface-variant opacity-50">#00141</td>
+<td class="py-3 px-4 text-on-surface">2023.10.24_09:15:44</td>
+<td class="py-3 px-4 font-bold text-primary">ETH/USDT</td>
+<td class="py-3 px-4"><span class="text-error px-2 border border-error/30">SHORT</span></td>
+<td class="py-3 px-4">1,824.15</td>
+<td class="py-3 px-4">1,845.20</td>
+<td class="py-3 px-4 text-error font-bold">-1.15%</td>
+<td class="py-3 px-4 text-on-surface-variant font-mono">[ MEAN_REV ]</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary/5 group transition-colors cursor-crosshair">
+<td class="py-3 px-4 text-on-surface-variant opacity-50">#00140</td>
+<td class="py-3 px-4 text-on-surface">2023.10.23_22:04:12</td>
+<td class="py-3 px-4 font-bold text-primary">SOL/USDT</td>
+<td class="py-3 px-4"><span class="text-primary-dim px-2 border border-primary-dim/30">LONG</span></td>
+<td class="py-3 px-4">32.44</td>
+<td class="py-3 px-4">35.12</td>
+<td class="py-3 px-4 text-primary font-bold">+8.26%</td>
+<td class="py-3 px-4 text-on-surface-variant font-mono">[ SCALP_V2 ]</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-primary/5 group transition-colors cursor-crosshair bg-surface-container-low/30">
+<td class="py-3 px-4 text-on-surface-variant opacity-50">#00139</td>
+<td class="py-3 px-4 text-on-surface">2023.10.23_18:55:00</td>
+<td class="py-3 px-4 font-bold text-primary">LINK/USDT</td>
+<td class="py-3 px-4"><span class="text-primary-dim px-2 border border-primary-dim/30">LONG</span></td>
+<td class="py-3 px-4">10.12</td>
+<td class="py-3 px-4">10.15</td>
+<td class="py-3 px-4 text-on-surface-variant font-bold">0.00%</td>
+<td class="py-3 px-4 text-on-surface-variant font-mono">[ BE_EXIT ]</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-primary/5 group transition-colors cursor-crosshair">
+<td class="py-3 px-4 text-on-surface-variant opacity-50">#00138</td>
+<td class="py-3 px-4 text-on-surface">2023.10.23_11:30:19</td>
+<td class="py-3 px-4 font-bold text-primary">BTC/USDT</td>
+<td class="py-3 px-4"><span class="text-error px-2 border border-error/30">SHORT</span></td>
+<td class="py-3 px-4">33,900.00</td>
+<td class="py-3 px-4">33,450.00</td>
+<td class="py-3 px-4 text-primary font-bold">+1.32%</td>
+<td class="py-3 px-4 text-on-surface-variant font-mono">[ MEAN_REV ]</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-primary/5 group transition-colors cursor-crosshair bg-surface-container-low/30">
+<td class="py-3 px-4 text-on-surface-variant opacity-50">#00137</td>
+<td class="py-3 px-4 text-on-surface">2023.10.22_16:12:55</td>
+<td class="py-3 px-4 font-bold text-primary">AVAX/USDT</td>
+<td class="py-3 px-4"><span class="text-error px-2 border border-error/30">SHORT</span></td>
+<td class="py-3 px-4">9.85</td>
+<td class="py-3 px-4">10.05</td>
+<td class="py-3 px-4 text-error font-bold">-2.03%</td>
+<td class="py-3 px-4 text-on-surface-variant font-mono">[ TREND_F ]</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-primary/5 group transition-colors cursor-crosshair">
+<td class="py-3 px-4 text-on-surface-variant opacity-50">#00136</td>
+<td class="py-3 px-4 text-on-surface">2023.10.22_04:00:11</td>
+<td class="py-3 px-4 font-bold text-primary">MATIC/USDT</td>
+<td class="py-3 px-4"><span class="text-primary-dim px-2 border border-primary-dim/30">LONG</span></td>
+<td class="py-3 px-4">0.551</td>
+<td class="py-3 px-4">0.612</td>
+<td class="py-3 px-4 text-primary font-bold">+11.07%</td>
+<td class="py-3 px-4 text-on-surface-variant font-mono">[ L2_ACCUM ]</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-primary/5 group transition-colors cursor-crosshair bg-surface-container-low/30">
+<td class="py-3 px-4 text-on-surface-variant opacity-50">#00135</td>
+<td class="py-3 px-4 text-on-surface">2023.10.21_12:44:32</td>
+<td class="py-3 px-4 font-bold text-primary">ARB/USDT</td>
+<td class="py-3 px-4"><span class="text-primary-dim px-2 border border-primary-dim/30">LONG</span></td>
+<td class="py-3 px-4">0.820</td>
+<td class="py-3 px-4">0.811</td>
+<td class="py-3 px-4 text-error font-bold">-1.10%</td>
+<td class="py-3 px-4 text-on-surface-variant font-mono">[ BREAK_H4 ]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Dashboard Style Metrics -->
+<div class="grid grid-cols-4 gap-4 h-32">
+<div class="bg-surface-container-low p-4 flex flex-col justify-between border-l-2 border-primary">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest">Win_Rate_Alpha</span>
+<span class="text-3xl font-black text-primary syntax-glow">68.4%</span>
+</div>
+<div class="bg-surface-container-low p-4 flex flex-col justify-between border-l-2 border-outline-variant">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest">Profit_Factor</span>
+<span class="text-3xl font-black text-on-surface">2.41</span>
+</div>
+<div class="bg-surface-container-low p-4 flex flex-col justify-between border-l-2 border-outline-variant">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest">Max_Drawdown</span>
+<span class="text-3xl font-black text-error">-4.2%</span>
+</div>
+<div class="bg-surface-container-low p-4 flex flex-col justify-between border-l-2 border-primary-container">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest">Equity_Curve</span>
+<div class="flex items-end gap-1 h-8">
+<div class="w-2 h-4 bg-primary/20"></div>
+<div class="w-2 h-6 bg-primary/40"></div>
+<div class="w-2 h-3 bg-primary/20"></div>
+<div class="w-2 h-8 bg-primary"></div>
+<div class="w-2 h-5 bg-primary/60"></div>
+<div class="w-2 h-7 bg-primary/80"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer (Authority: JSON) -->
+<footer class="fixed bottom-0 left-0 w-full flex justify-between items-center px-8 z-50 bg-[#000000] dark:bg-[#000000] font-['Space_Grotesk'] text-[10px] tracking-widest uppercase font-mono docked full-width bottom-0 h-8 border-t border-[#484848]/15">
+<div class="text-[#d0ffa6] flex items-center gap-4">
+<span>SYSTEM_UPTIME: 99.98%</span>
+<span class="text-[#484848]">//</span>
+<span>MARKET_STATUS: OPEN</span>
+</div>
+<div class="flex gap-6">
+<a class="text-[#484848] hover:text-[#d0ffa6]" href="#">API_DOCS</a>
+<a class="text-[#484848] hover:text-[#d0ffa6]" href="#">SECURITY_PROTOCOL</a>
+<span class="text-[#88fe00]">[ SESSION_SECURE ]</span>
+</div>
+</footer>
+</main>
+</body></html>

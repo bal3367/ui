@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SYNTAX_PROTOCOL // TRADING_CALENDAR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#d4ee68",
+                    "outline-variant": "#484848",
+                    "tertiary-fixed-dim": "#e6e655",
+                    "tertiary-dim": "#e6e655",
+                    "on-tertiary": "#626200",
+                    "surface-container-highest": "#262626",
+                    "inverse-on-surface": "#555555",
+                    "surface-variant": "#262626",
+                    "tertiary-container": "#f2f260",
+                    "error-container": "#b92902",
+                    "on-tertiary-fixed": "#494900",
+                    "primary-fixed-dim": "#7fef00",
+                    "on-background": "#ffffff",
+                    "on-secondary": "#495800",
+                    "secondary-fixed": "#d4ee68",
+                    "on-secondary-container": "#f1ffb3",
+                    "tertiary": "#fffeac",
+                    "on-primary": "#336600",
+                    "error": "#ff7351",
+                    "on-tertiary-container": "#5a5a00",
+                    "primary-fixed": "#88fe00",
+                    "surface-container-high": "#1f1f1f",
+                    "on-error": "#450900",
+                    "on-surface": "#ffffff",
+                    "inverse-surface": "#f9f9f9",
+                    "surface": "#0e0e0e",
+                    "error-dim": "#d53d18",
+                    "secondary-fixed-dim": "#c7e05c",
+                    "secondary-dim": "#c7e05c",
+                    "secondary-container": "#556500",
+                    "on-primary-fixed": "#224800",
+                    "surface-bright": "#2c2c2c",
+                    "on-error-container": "#ffd2c8",
+                    "on-secondary-fixed": "#384400",
+                    "primary-container": "#88fe00",
+                    "on-secondary-fixed-variant": "#526200",
+                    "outline": "#757575",
+                    "on-surface-variant": "#ababab",
+                    "surface-container-lowest": "#000000",
+                    "surface-dim": "#0e0e0e",
+                    "tertiary-fixed": "#f5f562",
+                    "on-primary-fixed-variant": "#346800",
+                    "on-tertiary-fixed-variant": "#666600",
+                    "surface-container": "#191919",
+                    "on-primary-container": "#2e5d00",
+                    "surface-tint": "#d0ffa6",
+                    "surface-container-low": "#131313",
+                    "primary": "#d0ffa6",
+                    "background": "#0e0e0e",
+                    "primary-dim": "#7fef00",
+                    "inverse-primary": "#366c00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Space Grotesk"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #0e0e0e; color: #ffffff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glow-primary { box-shadow: 0 0 20px rgba(136, 254, 0, 0.15); }
+        .glow-error { box-shadow: 0 0 20px rgba(255, 115, 81, 0.1); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #484848; }
+    </style>
+</head>
+<body class="bg-surface overflow-hidden">
+<!-- Top Navigation -->
+<header class="bg-[#0e0e0e] dark:bg-[#000000] text-[#d0ffa6] font-['Space_Grotesk'] tracking-tighter uppercase rounded-none border-b border-[#484848]/15 flex justify-between items-center w-full px-6 py-3 fixed top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#88fe00] font-mono">SYNTAX_PROTOCOL</span>
+<nav class="hidden md:flex gap-6 text-sm">
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_MARKETS</a>
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_LIVE_FEED</a>
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_EXECUTIONS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-[#88fe00] transition-colors">terminal</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-[#88fe00] transition-colors">settings</span>
+</div>
+</header>
+<!-- Sidebar Navigation -->
+<aside class="bg-[#0e0e0e] dark:bg-[#131313] rounded-none w-64 h-screen border-r border-[#484848]/15 fixed left-0 top-0 flex flex-col z-40 pt-16">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="text-xs font-black text-[#88fe00] font-mono leading-none">TERMINAL_01</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">OPERATOR_V2.4</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">dashboard</span>
+<span class="font-['Space_Grotesk'] font-medium text-xs">DASHBOARD</span>
+</a>
+<a class="flex items-center gap-3 text-[#0e0e0e] bg-[#88fe00] font-bold px-4 py-2 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+<span class="font-['Space_Grotesk'] font-medium text-xs">CALENDAR</span>
+</a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+<span class="font-['Space_Grotesk'] font-medium text-xs">JOURNAL</span>
+</a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">query_stats</span>
+<span class="font-['Space_Grotesk'] font-medium text-xs">ANALYTICS</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 flex flex-col gap-4">
+<button class="bg-primary-container text-on-primary font-bold py-3 text-xs tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                EXECUTE_TRADE
+            </button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:text-white transition-colors text-xs" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span>SUPPORT</span>
+</a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:text-white transition-colors text-xs" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span>LOGOUT</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 pb-8 h-screen flex">
+<!-- Calendar Grid -->
+<div class="flex-1 p-8 overflow-y-auto">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-3xl font-black tracking-tighter uppercase text-white font-headline">CALENDAR_OVERVIEW</h1>
+<p class="text-xs text-on-surface-variant font-mono mt-1">// Q3_RECAP_MONTH_08</p>
+</div>
+<div class="flex gap-4 items-center">
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<span class="text-sm font-bold tracking-widest uppercase text-primary">AUGUST_2024</span>
+</div>
+</div>
+<!-- Calendar Container -->
+<div class="grid grid-cols-7 border-l border-t border-outline-variant/15">
+<!-- Header -->
+<div class="py-4 text-center text-[10px] font-mono text-on-surface-variant border-r border-b border-outline-variant/15 bg-surface-container-lowest">SUN</div>
+<div class="py-4 text-center text-[10px] font-mono text-on-surface-variant border-r border-b border-outline-variant/15 bg-surface-container-lowest">MON</div>
+<div class="py-4 text-center text-[10px] font-mono text-on-surface-variant border-r border-b border-outline-variant/15 bg-surface-container-lowest">TUE</div>
+<div class="py-4 text-center text-[10px] font-mono text-on-surface-variant border-r border-b border-outline-variant/15 bg-surface-container-lowest">WED</div>
+<div class="py-4 text-center text-[10px] font-mono text-on-surface-variant border-r border-b border-outline-variant/15 bg-surface-container-lowest">THU</div>
+<div class="py-4 text-center text-[10px] font-mono text-on-surface-variant border-r border-b border-outline-variant/15 bg-surface-container-lowest">FRI</div>
+<div class="py-4 text-center text-[10px] font-mono text-on-surface-variant border-r border-b border-outline-variant/15 bg-surface-container-lowest">SAT</div>
+<!-- Empty Cells for start of month offset -->
+<div class="h-32 bg-surface-container-lowest opacity-20 border-r border-b border-outline-variant/15"></div>
+<div class="h-32 bg-surface-container-lowest opacity-20 border-r border-b border-outline-variant/15"></div>
+<div class="h-32 bg-surface-container-lowest opacity-20 border-r border-b border-outline-variant/15"></div>
+<div class="h-32 bg-surface-container-lowest opacity-20 border-r border-b border-outline-variant/15"></div>
+<!-- Days -->
+<!-- Profit Day -->
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low hover:bg-surface-container-high transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-primary font-mono text-xs opacity-50">01</div>
+<div class="mt-8">
+<p class="text-[10px] font-mono text-primary leading-tight">+$1,420.50</p>
+<p class="text-[8px] font-mono text-on-surface-variant mt-1 uppercase">4 TRADES</p>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary/20 glow-primary"></div>
+</div>
+<!-- Loss Day -->
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low hover:bg-surface-container-high transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-error font-mono text-xs opacity-50">02</div>
+<div class="mt-8">
+<p class="text-[10px] font-mono text-error leading-tight">-$412.00</p>
+<p class="text-[8px] font-mono text-on-surface-variant mt-1 uppercase">2 TRADES</p>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-error/20 glow-error"></div>
+</div>
+<!-- Neutral/No Trade Day -->
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-on-surface-variant font-mono text-xs opacity-50">03</div>
+<div class="mt-8">
+<p class="text-[10px] font-mono text-on-surface-variant leading-tight">NO_ACTIVITY</p>
+</div>
+</div>
+<!-- Fill out more days... -->
+<!-- Day 04-10 -->
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low hover:bg-surface-container-high transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-primary font-mono text-xs opacity-50">04</div>
+<div class="mt-8"><p class="text-[10px] font-mono text-primary">+$890.12</p></div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary/20 glow-primary"></div>
+</div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low hover:bg-surface-container-high transition-all cursor-pointer group relative overflow-hidden border-2 border-primary/40 bg-surface-container-high">
+<div class="absolute top-0 right-0 p-2 text-primary font-mono text-xs font-bold">05</div>
+<div class="mt-8">
+<p class="text-[10px] font-mono text-primary font-bold">+$3,210.00</p>
+<p class="text-[8px] font-mono text-on-surface-variant mt-1 uppercase">SELECTED_SESSION</p>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary glow-primary"></div>
+</div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low hover:bg-surface-container-high transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-primary font-mono text-xs opacity-50">06</div>
+<div class="mt-8"><p class="text-[10px] font-mono text-primary">+$112.50</p></div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary/20 glow-primary"></div>
+</div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low hover:bg-surface-container-high transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-error font-mono text-xs opacity-50">07</div>
+<div class="mt-8"><p class="text-[10px] font-mono text-error">-$201.00</p></div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-error/20 glow-error"></div>
+</div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low hover:bg-surface-container-high transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-primary font-mono text-xs opacity-50">08</div>
+<div class="mt-8"><p class="text-[10px] font-mono text-primary">+$450.00</p></div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary/20 glow-primary"></div>
+</div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-on-surface-variant font-mono text-xs opacity-50">09</div>
+<div class="mt-8"><p class="text-[10px] font-mono text-on-surface-variant uppercase">WEEKEND_CLOSE</p></div>
+</div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-on-surface-variant font-mono text-xs opacity-50">10</div>
+<div class="mt-8"><p class="text-[10px] font-mono text-on-surface-variant uppercase">WEEKEND_CLOSE</p></div>
+</div>
+<!-- ... Repeated rows for rest of month ... -->
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+<div class="h-32 p-3 border-r border-b border-outline-variant/15 bg-surface-container-low opacity-40"></div>
+</div>
+</div>
+<!-- Session Summary Sidebar -->
+<div class="w-96 bg-surface-container border-l border-outline-variant/15 p-8 flex flex-col gap-6 overflow-y-auto">
+<div>
+<p class="text-[10px] font-mono text-primary tracking-widest uppercase mb-1">// SESSION_LOG_0805</p>
+<h2 class="text-2xl font-black uppercase font-headline">AUGUST_05_SUMMARY</h2>
+</div>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 border border-outline-variant/5">
+<p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">PROFIT_LOSS</p>
+<p class="text-xl font-bold text-primary">+$3,210.00</p>
+</div>
+<div class="bg-surface-container-lowest p-4 border border-outline-variant/5">
+<p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">WIN_RATE</p>
+<p class="text-xl font-bold text-white">75.0%</p>
+</div>
+<div class="bg-surface-container-lowest p-4 border border-outline-variant/5">
+<p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">TOTAL_TRADES</p>
+<p class="text-xl font-bold text-white">4</p>
+</div>
+<div class="bg-surface-container-lowest p-4 border border-outline-variant/5">
+<p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">MAX_DRAWDOWN</p>
+<p class="text-xl font-bold text-error">-$120.00</p>
+</div>
+</div>
+<!-- Execution Log -->
+<div class="space-y-4">
+<p class="text-[10px] font-mono text-on-surface-variant tracking-widest uppercase">// EXECUTIONS</p>
+<div class="space-y-2">
+<div class="bg-surface-container-low p-4 hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-primary">[ BUY ] BTC/USDT</span>
+<span class="text-[10px] font-mono text-on-surface-variant">14:22:05</span>
+</div>
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-on-surface-variant">ENTRY: $64,221.00</span>
+<span class="text-primary">+$1,450.00</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-primary">[ BUY ] ETH/USDT</span>
+<span class="text-[10px] font-mono text-on-surface-variant">15:10:12</span>
+</div>
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-on-surface-variant">ENTRY: $3,412.50</span>
+<span class="text-primary">+$1,880.00</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-error">[ SELL ] SOL/USDT</span>
+<span class="text-[10px] font-mono text-on-surface-variant">16:45:30</span>
+</div>
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-on-surface-variant">ENTRY: $142.10</span>
+<span class="text-error">-$120.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Operator Notes -->
+<div class="mt-auto">
+<p class="text-[10px] font-mono text-on-surface-variant tracking-widest uppercase mb-2">// OPERATOR_NOTES</p>
+<div class="bg-surface-container-lowest p-4 border border-outline-variant/10 text-xs text-on-surface-variant leading-relaxed font-mono">
+                    &gt; High volatility during NY session open.<br/>
+                    &gt; Followed risk parameters for BTC long.<br/>
+                    &gt; Exited SOL early due to momentum shift.
+                </div>
+</div>
+</div>
+</main>
+<!-- System Footer -->
+<footer class="fixed bottom-0 left-0 w-full flex justify-between items-center px-8 z-50 bg-[#000000] dark:bg-[#000000] text-[#d0ffa6] font-['Space_Grotesk'] text-[10px] tracking-widest uppercase font-mono docked full-width h-8 border-t border-[#484848]/15 tonal-shift-lowest flat no shadows">
+<div class="flex items-center gap-6">
+<span>SYSTEM_UPTIME: 99.98%</span>
+<span>MARKET_STATUS: <span class="text-primary">OPEN</span></span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-[#484848] hover:text-[#d0ffa6] transition-colors" href="#">API_DOCS</a>
+<a class="text-[#484848] hover:text-[#d0ffa6] transition-colors" href="#">SECURITY_PROTOCOL</a>
+<span class="text-[#88fe00]">V2.4.0_STABLE</span>
+</div>
+</footer>
+</body></html>

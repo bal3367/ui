@@ -1,0 +1,384 @@
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SYNTAX_PROTOCOL // STRATEGY_BUILDER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#b92902",
+                    "on-secondary": "#495800",
+                    "background": "#0e0e0e",
+                    "tertiary-dim": "#e6e655",
+                    "on-primary": "#336600",
+                    "inverse-primary": "#366c00",
+                    "error": "#ff7351",
+                    "tertiary-fixed": "#f5f562",
+                    "secondary-dim": "#c7e05c",
+                    "error-dim": "#d53d18",
+                    "on-primary-container": "#2e5d00",
+                    "tertiary-fixed-dim": "#e6e655",
+                    "surface-container": "#191919",
+                    "on-secondary-container": "#f1ffb3",
+                    "on-secondary-fixed": "#384400",
+                    "primary-fixed": "#88fe00",
+                    "primary-container": "#88fe00",
+                    "on-surface": "#ffffff",
+                    "on-tertiary-fixed": "#494900",
+                    "primary-fixed-dim": "#7fef00",
+                    "secondary": "#d4ee68",
+                    "on-primary-fixed": "#224800",
+                    "surface-dim": "#0e0e0e",
+                    "on-tertiary": "#626200",
+                    "on-background": "#ffffff",
+                    "surface": "#0e0e0e",
+                    "secondary-fixed-dim": "#c7e05c",
+                    "on-error": "#450900",
+                    "surface-container-highest": "#262626",
+                    "on-surface-variant": "#ababab",
+                    "inverse-on-surface": "#555555",
+                    "primary-dim": "#7fef00",
+                    "on-error-container": "#ffd2c8",
+                    "surface-container-lowest": "#000000",
+                    "on-secondary-fixed-variant": "#526200",
+                    "on-primary-fixed-variant": "#346800",
+                    "surface-bright": "#2c2c2c",
+                    "secondary-fixed": "#d4ee68",
+                    "surface-tint": "#d0ffa6",
+                    "on-tertiary-fixed-variant": "#666600",
+                    "inverse-surface": "#f9f9f9",
+                    "surface-container-low": "#131313",
+                    "tertiary-container": "#f2f260",
+                    "tertiary": "#fffeac",
+                    "outline-variant": "#484848",
+                    "secondary-container": "#556500",
+                    "surface-variant": "#262626",
+                    "outline": "#757575",
+                    "surface-container-high": "#1f1f1f",
+                    "primary": "#d0ffa6",
+                    "on-tertiary-container": "#5a5a00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Space Grotesk"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .code-glow {
+            text-shadow: 0 0 10px rgba(208, 255, 166, 0.3);
+        }
+        .inset-well {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #0e0e0e; }
+        ::-webkit-scrollbar-thumb { background: #484848; }
+        ::-webkit-scrollbar-thumb:hover { background: #88fe00; }
+    </style>
+</head>
+<body class="bg-background text-on-surface select-none">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#0e0e0e] flex justify-between items-center px-6 py-3 border-b border-[#484848]/15 font-['Space_Grotesk'] tracking-tighter uppercase">
+<div class="text-xl font-bold text-[#88fe00] font-mono">SYNTAX_PROTOCOL</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_MARKETS</a>
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_LIVE_FEED</a>
+<a class="text-[#d0ffa6] border-b-2 border-[#88fe00] pb-1" href="#">//_EXECUTIONS</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#ababab] hover:text-[#d0ffa6]">terminal</button>
+<button class="material-symbols-outlined text-[#ababab] hover:text-[#d0ffa6]">settings</button>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 flex flex-col h-full z-40 bg-[#0e0e0e] w-64 border-r border-[#484848]/15 font-['Space_Grotesk'] font-medium pt-16">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center border border-[#484848]/30">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<div class="text-sm font-black text-[#88fe00] tracking-tighter">TERMINAL_01</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">OPERATOR_V2.4</div>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">dashboard</span>
+<span class="text-xs tracking-widest">DASHBOARD</span>
+</a>
+<a class="flex items-center gap-3 text-[#0e0e0e] bg-[#88fe00] font-bold px-4 py-2 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">construction</span>
+<span class="text-xs tracking-widest">STRATEGY_BUILDER</span>
+</a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+<span class="text-xs tracking-widest">CALENDAR</span>
+</a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+<span class="text-xs tracking-widest">JOURNAL</span>
+</a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-2 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">query_stats</span>
+<span class="text-xs tracking-widest">ANALYTICS</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 space-y-4">
+<button class="w-full bg-primary text-on-primary py-3 font-bold text-xs tracking-tighter active:scale-95 duration-75">
+                EXECUTE_TRADE
+            </button>
+<div class="pt-4 border-t border-[#484848]/15 space-y-1">
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-1 hover:text-[#d0ffa6] text-[10px] tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined text-xs">help</span> SUPPORT
+                </a>
+<a class="flex items-center gap-3 text-[#ababab] px-4 py-1 hover:text-[#d0ffa6] text-[10px] tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined text-xs">logout</span> LOGOUT
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 pb-8 min-h-screen grid grid-cols-12 gap-0 overflow-hidden">
+<!-- Left: Indicators Panel -->
+<section class="col-span-2 bg-surface-container-low border-r border-[#484848]/15 flex flex-col">
+<div class="p-4 border-b border-[#484848]/15">
+<span class="text-[10px] text-primary font-bold tracking-[0.2em] uppercase">//_LIBRARY</span>
+</div>
+<div class="flex-1 overflow-y-auto p-2 space-y-1">
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="text-xs text-on-surface-variant group-hover:text-primary transition-colors tracking-tighter">RSI_RELATIVE_STRENGTH</span>
+<span class="material-symbols-outlined text-[14px] text-outline">add_box</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest hover:bg-surface-container-highest transition-colors cursor-pointer border-l-2 border-primary">
+<span class="text-xs text-primary tracking-tighter">MACD_CONVERGENCE</span>
+<span class="material-symbols-outlined text-[14px] text-primary">check</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="text-xs text-on-surface-variant group-hover:text-primary transition-colors tracking-tighter">EMA_CROSS_20_50</span>
+<span class="material-symbols-outlined text-[14px] text-outline">add_box</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="text-xs text-on-surface-variant group-hover:text-primary transition-colors tracking-tighter">BB_BOLLINGER_BANDS</span>
+<span class="material-symbols-outlined text-[14px] text-outline">add_box</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest hover:bg-surface-container-highest transition-colors cursor-pointer border-l-2 border-primary">
+<span class="text-xs text-primary tracking-tighter">ATR_VOLATILITY</span>
+<span class="material-symbols-outlined text-[14px] text-primary">check</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-lowest hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="text-xs text-on-surface-variant group-hover:text-primary transition-colors tracking-tighter">VWAP_ANCHORED</span>
+<span class="material-symbols-outlined text-[14px] text-outline">add_box</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest">
+<div class="text-[10px] text-outline font-mono mb-2">CUSTOM_SCRIPTS: 04</div>
+<button class="w-full py-2 border border-outline-variant text-[10px] tracking-widest text-on-surface hover:bg-surface-variant transition-colors uppercase">
+                    IMPORT_PY_MODEL
+                </button>
+</div>
+</section>
+<!-- Center: Strategy Editor -->
+<section class="col-span-7 bg-surface flex flex-col relative">
+<div class="p-4 flex items-center justify-between border-b border-[#484848]/15">
+<div class="flex items-center gap-4">
+<span class="text-[10px] text-primary font-bold tracking-[0.2em] uppercase">//_LOGIC_WORKSPACE</span>
+<span class="text-[10px] text-on-surface-variant font-mono">FILE: MEAN_REVERSION_V4.STG</span>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-surface-container-highest text-[10px] tracking-widest hover:text-primary transition-colors">SAVE_DRAFT</button>
+<button class="px-3 py-1 bg-primary text-on-primary text-[10px] tracking-widest font-bold">COMPILE</button>
+</div>
+</div>
+<div class="flex-1 p-6 font-mono text-sm leading-relaxed overflow-y-auto bg-surface-container-lowest relative">
+<div class="absolute left-0 top-0 bottom-0 w-12 bg-surface-container border-r border-[#484848]/10 flex flex-col items-center pt-6 text-[#484848] select-none text-[10px]">
+<div>01</div><div>02</div><div>03</div><div>04</div><div>05</div><div>06</div><div>07</div><div>08</div><div>09</div><div>10</div>
+</div>
+<div class="pl-10">
+<div class="text-[#484848] mb-2">// DEFINE_STRATEGY_PARAMETERS</div>
+<div class="flex items-center gap-2">
+<span class="text-tertiary">SET</span>
+<span class="text-on-surface">LEVERAGE</span>
+<span class="text-primary">=</span>
+<span class="text-secondary">10x</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-tertiary">DEFINE</span>
+<span class="text-on-surface">TIMEFRAME</span>
+<span class="text-primary">=</span>
+<span class="text-secondary">[ 15M, 1H ]</span>
+</div>
+<br/>
+<div class="text-[#484848] mb-2">// ENTRY_CONDITIONS</div>
+<div class="flex items-center gap-2">
+<span class="text-primary">IF</span>
+<span class="text-on-surface">( MACD.histogram</span>
+<span class="text-primary">&gt;</span>
+<span class="text-secondary">0</span>
+<span class="text-primary">AND</span>
+<span class="text-on-surface">RSI</span>
+<span class="text-primary">&lt;</span>
+<span class="text-secondary">30</span>
+<span class="text-on-surface">)</span>
+</div>
+<div class="pl-4 flex items-center gap-2">
+<span class="text-tertiary">THEN</span>
+<span class="text-primary-container font-bold">EXECUTE_LONG_ENTRY</span>
+</div>
+<div class="pl-4 flex items-center gap-2">
+<span class="text-on-surface-variant">@SET_STOP_LOSS</span>
+<span class="text-primary">=</span>
+<span class="text-secondary">ATR * 1.5</span>
+</div>
+<br/>
+<div class="text-[#484848] mb-2">// EXIT_CONDITIONS</div>
+<div class="flex items-center gap-2">
+<span class="text-primary">IF</span>
+<span class="text-on-surface">( PRICE</span>
+<span class="text-primary">&gt;=</span>
+<span class="text-on-surface">TAKE_PROFIT_1</span>
+<span class="text-on-surface">)</span>
+</div>
+<div class="pl-4 flex items-center gap-2">
+<span class="text-tertiary">THEN</span>
+<span class="text-error">CLOSE_POSITION(50%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary">&gt;</span>
+<span class="inline-block w-2 h-5 bg-primary animate-pulse"></span>
+</div>
+</div>
+</div>
+<!-- Bottom Control: Export to Terminal -->
+<div class="p-6 bg-surface-container-low border-t border-[#484848]/15">
+<div class="flex justify-between items-center">
+<div class="flex gap-8">
+<div>
+<div class="text-[10px] text-outline tracking-widest mb-1">EXECUTION_ENGINE</div>
+<div class="text-xs font-bold text-primary tracking-tighter">ULTRA_LOW_LATENCY_V2</div>
+</div>
+<div>
+<div class="text-[10px] text-outline tracking-widest mb-1">ACCOUNT_ALLOCATION</div>
+<div class="text-xs font-bold text-on-surface tracking-tighter">85.0% EQUITY</div>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 font-black text-xs tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(136,254,0,0.2)]">
+                        EXPORT_TO_TERMINAL
+                    </button>
+</div>
+</div>
+</section>
+<!-- Right: Analysis & Backtest -->
+<section class="col-span-3 bg-surface-container-low border-l border-[#484848]/15 flex flex-col">
+<div class="p-4 border-b border-[#484848]/15">
+<span class="text-[10px] text-primary font-bold tracking-[0.2em] uppercase">//_BACKTEST_RESULTS</span>
+</div>
+<div class="p-4 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 border-l-2 border-primary">
+<div class="text-[10px] text-outline tracking-widest mb-1">PROFIT_FACTOR</div>
+<div class="text-2xl font-bold text-primary tracking-tighter">2.84</div>
+</div>
+<div class="bg-surface-container-lowest p-4 border-l-2 border-secondary">
+<div class="text-[10px] text-outline tracking-widest mb-1">WIN_RATE</div>
+<div class="text-2xl font-bold text-on-surface tracking-tighter">64.2%</div>
+</div>
+<div class="bg-surface-container-lowest p-4 border-l-2 border-error">
+<div class="text-[10px] text-outline tracking-widest mb-1">MAX_DRAWDOWN</div>
+<div class="text-2xl font-bold text-error tracking-tighter">8.4%</div>
+</div>
+<div class="bg-surface-container-lowest p-4 border-l-2 border-on-surface">
+<div class="text-[10px] text-outline tracking-widest mb-1">EXPECTANCY</div>
+<div class="text-2xl font-bold text-on-surface tracking-tighter">$142.0</div>
+</div>
+</div>
+<!-- Equity Curve Visualization -->
+<div class="flex-1 px-4 pb-4">
+<div class="bg-surface-container-lowest h-full relative border border-[#484848]/10 overflow-hidden">
+<div class="absolute top-4 left-4 text-[10px] text-primary font-mono">//_EQUITY_CURVE_VISUALIZER</div>
+<!-- Mock chart representation -->
+<div class="absolute inset-0 flex items-end p-8">
+<div class="w-full h-48 relative overflow-hidden">
+<!-- Visual SVG curve -->
+<svg class="w-full h-full stroke-primary fill-none stroke-[2px]" viewbox="0 0 400 200">
+<path d="M0 180 L40 170 L80 175 L120 150 L160 155 L200 120 L240 130 L280 80 L320 90 L360 40 L400 10" stroke-linejoin="round"></path>
+<path d="M0 180 L40 170 L80 175 L120 150 L160 155 L200 120 L240 130 L280 80 L320 90 L360 40 L400 10 V200 H0 Z" fill="url(#grad1)" opacity="0.1" stroke="none"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(208,255,166);stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:rgb(14,14,14);stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute inset-0 grid grid-cols-5 pointer-events-none opacity-20">
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 text-[8px] text-outline font-mono">PERIOD: LAST_365_DAYS</div>
+</div>
+</div>
+<!-- Recent Optimization Logs -->
+<div class="h-48 p-4 bg-surface-container-lowest border-t border-[#484848]/15 overflow-y-auto">
+<div class="text-[10px] text-outline tracking-widest mb-3 uppercase">//_PROCESS_LOGS</div>
+<div class="space-y-2 font-mono text-[9px]">
+<div class="flex gap-2">
+<span class="text-on-surface-variant">14:22:01</span>
+<span class="text-primary">[SUCCESS]</span>
+<span class="text-on-surface">BACKTEST_COMPLETED</span>
+</div>
+<div class="flex gap-2">
+<span class="text-on-surface-variant">14:22:00</span>
+<span class="text-tertiary">[PROCESS]</span>
+<span class="text-on-surface">CALCULATING_SHARPE_RATIO...</span>
+</div>
+<div class="flex gap-2">
+<span class="text-on-surface-variant">14:21:58</span>
+<span class="text-secondary">[INFO]</span>
+<span class="text-on-surface">IMPORTING_HISTORICAL_DATA_BTC_15M</span>
+</div>
+<div class="flex gap-2">
+<span class="text-on-surface-variant">14:21:55</span>
+<span class="text-primary">[SYSTEM]</span>
+<span class="text-on-surface">COMPILER_OPTIMIZATION_LEVEL_3</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer System Bar -->
+<footer class="fixed bottom-0 left-0 w-full flex justify-between items-center px-8 z-50 bg-[#000000] h-8 border-t border-[#484848]/15 font-['Space_Grotesk'] text-[10px] tracking-widest uppercase font-mono">
+<div class="text-[#d0ffa6]">SYSTEM_UPTIME: 99.98% // MARKET_STATUS: OPEN</div>
+<div class="flex gap-6">
+<a class="text-[#484848] hover:text-[#d0ffa6] transition-colors" href="#">API_DOCS</a>
+<a class="text-[#484848] hover:text-[#d0ffa6] transition-colors" href="#">SECURITY_PROTOCOL</a>
+<div class="text-[#88fe00] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                LATENCY: 12MS
+            </div>
+</div>
+</footer>
+</body></html>

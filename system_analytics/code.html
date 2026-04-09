@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#d4ee68",
+                        "outline-variant": "#484848",
+                        "tertiary-fixed-dim": "#e6e655",
+                        "tertiary-dim": "#e6e655",
+                        "on-tertiary": "#626200",
+                        "surface-container-highest": "#262626",
+                        "inverse-on-surface": "#555555",
+                        "surface-variant": "#262626",
+                        "tertiary-container": "#f2f260",
+                        "error-container": "#b92902",
+                        "on-tertiary-fixed": "#494900",
+                        "primary-fixed-dim": "#7fef00",
+                        "on-background": "#ffffff",
+                        "on-secondary": "#495800",
+                        "secondary-fixed": "#d4ee68",
+                        "on-secondary-container": "#f1ffb3",
+                        "tertiary": "#fffeac",
+                        "on-primary": "#336600",
+                        "error": "#ff7351",
+                        "on-tertiary-container": "#5a5a00",
+                        "primary-fixed": "#88fe00",
+                        "surface-container-high": "#1f1f1f",
+                        "on-error": "#450900",
+                        "on-surface": "#ffffff",
+                        "inverse-surface": "#f9f9f9",
+                        "surface": "#0e0e0e",
+                        "error-dim": "#d53d18",
+                        "secondary-fixed-dim": "#c7e05c",
+                        "secondary-dim": "#c7e05c",
+                        "secondary-container": "#556500",
+                        "on-primary-fixed": "#224800",
+                        "surface-bright": "#2c2c2c",
+                        "on-error-container": "#ffd2c8",
+                        "on-secondary-fixed": "#384400",
+                        "primary-container": "#88fe00",
+                        "on-secondary-fixed-variant": "#526200",
+                        "outline": "#757575",
+                        "on-surface-variant": "#ababab",
+                        "surface-container-lowest": "#000000",
+                        "surface-dim": "#0e0e0e",
+                        "tertiary-fixed": "#f5f562",
+                        "on-primary-fixed-variant": "#346800",
+                        "on-tertiary-fixed-variant": "#666600",
+                        "surface-container": "#191919",
+                        "on-primary-container": "#2e5d00",
+                        "surface-tint": "#d0ffa6",
+                        "surface-container-low": "#131313",
+                        "primary": "#d0ffa6",
+                        "background": "#0e0e0e",
+                        "primary-dim": "#7fef00",
+                        "inverse-primary": "#366c00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pixel-grid {
+            background-image: linear-gradient(#48484808 1px, transparent 1px), linear-gradient(90deg, #48484808 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .low-fi-chart {
+            clip-path: polygon(0% 100%, 5% 80%, 10% 85%, 15% 70%, 20% 75%, 25% 60%, 30% 65%, 35% 40%, 40% 50%, 45% 30%, 50% 35%, 55% 20%, 60% 25%, 65% 10%, 70% 15%, 75% 5%, 80% 10%, 85% 2%, 90% 5%, 100% 0%, 100% 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="bg-[#0e0e0e] dark:bg-[#000000] font-['Space_Grotesk'] tracking-tighter uppercase rounded-none border-b border-[#484848]/15 flex justify-between items-center w-full px-6 py-3 fixed top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#88fe00] font-mono">SYNTAX_PROTOCOL</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_MARKETS</a>
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_LIVE_FEED</a>
+<a class="text-[#ababab] hover:text-[#d0ffa6] transition-colors" href="#">//_EXECUTIONS</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#ababab] hover:text-[#d0ffa6] cursor-pointer">terminal</span>
+<span class="material-symbols-outlined text-[#ababab] hover:text-[#d0ffa6] cursor-pointer">settings</span>
+</div>
+</nav>
+<!-- Side Navigation -->
+<aside class="bg-[#0e0e0e] dark:bg-[#131313] font-['Space_Grotesk'] font-medium rounded-none w-64 h-screen border-r border-[#484848]/15 fixed left-0 top-0 flex flex-col z-40 hidden md:flex">
+<div class="p-6 pt-20">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<div class="text-lg font-black text-[#88fe00]">TERMINAL_01</div>
+<div class="text-[10px] text-on-surface-variant tracking-widest uppercase">OPERATOR_V2.4</div>
+</div>
+</div>
+<div class="space-y-1">
+<a class="text-[#ababab] px-4 py-2 flex items-center gap-3 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">dashboard</span> DASHBOARD
+                </a>
+<a class="text-[#ababab] px-4 py-2 flex items-center gap-3 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">calendar_month</span> CALENDAR
+                </a>
+<a class="text-[#ababab] px-4 py-2 flex items-center gap-3 hover:bg-[#1f1f1f] hover:text-[#d0ffa6] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">menu_book</span> JOURNAL
+                </a>
+<a class="text-[#0e0e0e] bg-[#88fe00] font-bold px-4 py-2 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-sm">query_stats</span> ANALYTICS
+                </a>
+</div>
+</div>
+<div class="mt-auto p-6 space-y-4">
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-3 px-4 hover:brightness-110 active:scale-95 transition-all">
+                EXECUTE_TRADE
+            </button>
+<div class="space-y-1">
+<a class="text-[#ababab] px-4 py-2 flex items-center gap-3 text-xs hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">help</span> SUPPORT
+                </a>
+<a class="text-[#ababab] px-4 py-2 flex items-center gap-3 text-xs hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> LOGOUT
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-16 pb-8 min-h-screen pixel-grid">
+<div class="max-w-[1400px] mx-auto p-6 lg:p-8">
+<!-- Header Identity -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="text-on-surface-variant text-xs mb-1 font-mono tracking-widest">// SYSTEM_CORE: ANALYTICS_ENGINE</div>
+<h1 class="text-4xl md:text-5xl font-black text-on-surface tracking-tighter uppercase leading-none">STRATEGY_DECONSTRUCTION</h1>
+</div>
+<div class="bg-surface-container-low px-4 py-2 border-l-2 border-primary">
+<div class="text-[10px] text-on-surface-variant font-mono uppercase">Total_Equity</div>
+<div class="text-2xl font-bold text-primary font-mono tracking-tight">$142,850.12</div>
+</div>
+</header>
+<!-- Bento Analytics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-1 auto-rows-min bg-outline-variant/15 border border-outline-variant/20">
+<!-- Main Equity Curve (Large) -->
+<div class="md:col-span-8 bg-surface-container p-6 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h2 class="text-xs font-bold text-primary uppercase tracking-widest mb-1">[ EQUITY_CURVE_REALTIME ]</h2>
+<p class="text-[10px] text-on-surface-variant font-mono">SAMPLING_RATE: 15MS // PERIOD: 30D</p>
+</div>
+<div class="text-right">
+<span class="text-xs text-secondary font-mono">+12.4% GROWTH_SIG</span>
+</div>
+</div>
+<!-- Pixelated Line Chart Representation -->
+<div class="h-64 relative">
+<!-- Horizontal Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-10 pointer-events-none">
+<div class="w-full h-px bg-on-surface"></div>
+<div class="w-full h-px bg-on-surface"></div>
+<div class="w-full h-px bg-on-surface"></div>
+<div class="w-full h-px bg-on-surface"></div>
+</div>
+<!-- The Chart -->
+<div class="absolute inset-0 low-fi-chart bg-gradient-to-t from-primary/20 via-primary/5 to-transparent border-t-2 border-primary"></div>
+<!-- Tooltip Overlay -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 p-2 bg-surface-container-highest border border-primary/40 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="text-[9px] text-on-surface-variant font-mono uppercase">Marker_X44</div>
+<div class="text-sm font-bold text-primary font-mono">$139.2k</div>
+</div>
+</div>
+</div>
+<!-- Key Metrics Sidebar -->
+<div class="md:col-span-4 bg-surface-container-low p-6 flex flex-col gap-6">
+<div>
+<h2 class="text-xs font-bold text-on-surface uppercase tracking-widest mb-4">// PERFORMANCE_SUMMARY</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/20 pb-2">
+<span class="text-[10px] text-on-surface-variant uppercase">Profit_Factor</span>
+<span class="text-lg font-mono font-bold text-secondary">2.84</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/20 pb-2">
+<span class="text-[10px] text-on-surface-variant uppercase">Win_Rate</span>
+<span class="text-lg font-mono font-bold text-primary">64.2%</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/20 pb-2">
+<span class="text-[10px] text-on-surface-variant uppercase">Max_Drawdown</span>
+<span class="text-lg font-mono font-bold text-error">-4.12%</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/20 pb-2">
+<span class="text-[10px] text-on-surface-variant uppercase">Recovery_Factor</span>
+<span class="text-lg font-mono font-bold">15.8</span>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-primary/20">
+<div class="text-[9px] text-on-surface-variant mb-2 uppercase tracking-tighter">System_Health: Nominal</div>
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="bg-primary h-full w-[88%]"></div>
+</div>
+</div>
+</div>
+<!-- Instrument Distribution -->
+<div class="md:col-span-6 bg-surface p-6">
+<h2 class="text-xs font-bold text-on-surface uppercase tracking-widest mb-6">[ INSTRUMENT_VOLUME ]</h2>
+<div class="space-y-6">
+<div class="group">
+<div class="flex justify-between text-[10px] mb-1 font-mono uppercase">
+<span>$BTC/USD</span>
+<span class="text-primary">45%</span>
+</div>
+<div class="w-full h-4 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container w-[45%] transition-all group-hover:brightness-125"></div>
+</div>
+</div>
+<div class="group">
+<div class="flex justify-between text-[10px] mb-1 font-mono uppercase">
+<span>$ETH/USD</span>
+<span class="text-primary">32%</span>
+</div>
+<div class="w-full h-4 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container w-[32%] transition-all group-hover:brightness-125"></div>
+</div>
+</div>
+<div class="group">
+<div class="flex justify-between text-[10px] mb-1 font-mono uppercase">
+<span>$SOL/USD</span>
+<span class="text-primary">18%</span>
+</div>
+<div class="w-full h-4 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container w-[18%] transition-all group-hover:brightness-125"></div>
+</div>
+</div>
+<div class="group">
+<div class="flex justify-between text-[10px] mb-1 font-mono uppercase">
+<span>OTHER_SYS</span>
+<span class="text-primary">5%</span>
+</div>
+<div class="w-full h-4 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container w-[5%] transition-all group-hover:brightness-125"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Performance by Day (Bar Chart) -->
+<div class="md:col-span-6 bg-surface-container p-6">
+<h2 class="text-xs font-bold text-on-surface uppercase tracking-widest mb-6">// DAILY_PNL_DISTRIBUTION</h2>
+<div class="h-48 flex items-end justify-between gap-1">
+<div class="flex-1 bg-primary/20 h-[40%] hover:bg-primary transition-colors cursor-help group relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-mono opacity-0 group-hover:opacity-100">MON</div>
+</div>
+<div class="flex-1 bg-primary/60 h-[75%] hover:bg-primary transition-colors cursor-help group relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-mono opacity-0 group-hover:opacity-100">TUE</div>
+</div>
+<div class="flex-1 bg-error/40 h-[25%] hover:bg-error transition-colors cursor-help group relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-mono opacity-0 group-hover:opacity-100">WED</div>
+</div>
+<div class="flex-1 bg-primary/80 h-[90%] hover:bg-primary transition-colors cursor-help group relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-mono opacity-0 group-hover:opacity-100">THU</div>
+</div>
+<div class="flex-1 bg-primary/40 h-[55%] hover:bg-primary transition-colors cursor-help group relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-mono opacity-0 group-hover:opacity-100">FRI</div>
+</div>
+<div class="flex-1 bg-surface-container-highest h-[10%] hover:bg-on-surface-variant transition-colors cursor-help group relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-mono opacity-0 group-hover:opacity-100">SAT</div>
+</div>
+<div class="flex-1 bg-surface-container-highest h-[5%] hover:bg-on-surface-variant transition-colors cursor-help group relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-mono opacity-0 group-hover:opacity-100">SUN</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-[9px] text-on-surface-variant uppercase font-mono">Best_Day: Thursday (+$1,240)</span>
+<span class="text-[9px] text-on-surface-variant uppercase font-mono">Worst_Day: Wednesday (-$310)</span>
+</div>
+</div>
+<!-- System Logs (Bottom Decorative) -->
+<div class="md:col-span-12 bg-surface-container-lowest p-4 font-mono text-[10px] text-on-surface-variant border-t border-outline-variant/20">
+<div class="flex gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+<span class="text-primary">[ RUNNING ]</span>
+<span>08:42:11 SEC_VAL: 1.0422</span>
+<span>08:42:15 FETCH_ORDER_HIST_SUCCESS</span>
+<span>08:42:18 CACHE_REBUILDING_88%</span>
+<span>08:42:22 SYNC_COMPLETE</span>
+<span class="text-secondary">08:42:25 SIGNAL_DETECTED_XBT_L_01</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric Data Visualization Row -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-1">
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-on-surface-variant">// RISK_DISTRIBUTION</h3>
+<div class="aspect-square relative flex items-center justify-center border border-outline-variant/10">
+<div class="absolute w-4/5 h-4/5 border border-primary/20 rotate-45"></div>
+<div class="absolute w-3/5 h-3/5 border border-primary/40 -rotate-12"></div>
+<div class="text-center z-10">
+<div class="text-3xl font-black font-mono leading-none">1.25</div>
+<div class="text-[9px] uppercase tracking-widest text-on-surface-variant">Avg_R_R</div>
+</div>
+<div class="absolute bottom-4 right-4">
+<span class="material-symbols-outlined text-primary/30 text-4xl">radar</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-2">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">// TOP_TRADING_SYMBOLS_ANALYSIS</h3>
+<div class="text-[9px] font-mono text-on-surface-variant uppercase">Sorting_By: PnL_Efficiency</div>
+</div>
+<div class="space-y-1">
+<div class="bg-surface-container-low h-16 flex items-center px-4 hover:bg-surface-container-high transition-colors border-l border-primary/20">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest font-bold font-mono mr-4">BTC</div>
+<div class="flex-1">
+<div class="text-xs font-bold font-mono tracking-tighter">BITCOIN_NETWORK</div>
+<div class="text-[9px] text-on-surface-variant font-mono uppercase">24_TRADES // 82% WR</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-primary font-mono">+$8,421.00</div>
+<div class="text-[9px] text-on-surface-variant font-mono uppercase">NET_YIELD</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest h-16 flex items-center px-4 hover:bg-surface-container-high transition-colors border-l border-outline-variant/20">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest font-bold font-mono mr-4">ETH</div>
+<div class="flex-1">
+<div class="text-xs font-bold font-mono tracking-tighter">ETHEREUM_L1</div>
+<div class="text-[9px] text-on-surface-variant font-mono uppercase">18_TRADES // 55% WR</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-primary font-mono">+$3,104.50</div>
+<div class="text-[9px] text-on-surface-variant font-mono uppercase">NET_YIELD</div>
+</div>
+</div>
+<div class="bg-surface-container-low h-16 flex items-center px-4 hover:bg-surface-container-high transition-colors border-l border-error/20">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-highest font-bold font-mono mr-4">SOL</div>
+<div class="flex-1">
+<div class="text-xs font-bold font-mono tracking-tighter">SOLANA_CORE</div>
+<div class="text-[9px] text-on-surface-variant font-mono uppercase">12_TRADES // 32% WR</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-error font-mono">-$1,020.10</div>
+<div class="text-[9px] text-on-surface-variant font-mono uppercase">NET_YIELD</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Stats Strip -->
+<footer class="bg-[#000000] dark:bg-[#000000] font-['Space_Grotesk'] text-[10px] tracking-widest uppercase font-mono docked full-width bottom-0 h-8 border-t border-[#484848]/15 fixed bottom-0 left-0 w-full flex justify-between items-center px-8 z-50">
+<div class="flex items-center gap-6">
+<span class="text-[#88fe00]">SYSTEM_UPTIME: 99.98%</span>
+<span class="text-[#484848]">MARKET_STATUS: <span class="text-[#88fe00]">OPEN</span></span>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-[#484848] hover:text-[#d0ffa6] transition-colors" href="#">API_DOCS</a>
+<a class="text-[#484848] hover:text-[#d0ffa6] transition-colors" href="#">SECURITY_PROTOCOL</a>
+<span class="text-[#484848]">LATENCY: 12MS</span>
+</div>
+</footer>
+<!-- Glass Command Palette Overlay (Contextual Element) -->
+<div class="fixed bottom-12 right-8 flex flex-col items-end gap-3 z-30">
+<div class="bg-surface-variant/60 backdrop-blur-[40px] border border-outline-variant/20 p-4 shadow-2xl hidden lg:block group">
+<div class="text-[9px] font-mono text-primary mb-2">// COMMAND_PROMPT</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-mono text-sm">&gt;</span>
+<input class="bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-xs font-mono p-0 w-32 placeholder:text-on-surface-variant/30" placeholder="QUERY_SYSTEM..." type="text"/>
+</div>
+</div>
+<div class="bg-primary-container p-3 flex items-center justify-center cursor-pointer hover:shadow-[0_0_20px_rgba(136,254,0,0.3)] transition-all active:scale-95">
+<span class="material-symbols-outlined text-on-primary-container">add</span>
+</div>
+</div>
+</body></html>
